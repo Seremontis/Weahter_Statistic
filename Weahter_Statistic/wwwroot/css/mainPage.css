@@ -5,20 +5,21 @@
 
 
 html, body {
-    background: url('../picture/blue_sky.jpg');
-    background-size: cover;
+    background: url('../picture/blue_sky.jpg') no-repeat;
+    background-size:cover;
+    background-position:bottom;
 }
 
 .myContainer {
     display: grid;
-    grid-template-rows: auto 25px;
+    grid-template-rows: auto min-content;
 
 }
 
 .myRow {
     grid-row: 1;
     display: grid;
-    grid-template-rows: 2fr 14fr 5fr;
+    grid-template-rows: 2fr 14fr 4fr;
     grid-gap:10px;
 }
 
@@ -38,12 +39,13 @@ html, body {
     }
     
     .boxLogo > .logo{
-        height:75px;
-        width:75px;
-        background:#0094ff;
+        background:url('../picture/logo.jpg');
+        background-size:5vw;
+        height:5vw;
+        width:5vw;
         border:2px solid black;
         border-radius:50%;
-        right:25px;
+        right:5vw;
     }
 
         .innerRow1 > .boxHeader {
@@ -83,11 +85,28 @@ html, body {
 .goldthink {
     border: 2px solid black;
     background:rgba(25, 100, 206, 0.40);
+    padding:25px 50px; 
+    position:relative;
 }
-
     .goldthink:last-child {
         border: 2px solid black;
         border-left: none;
+    }
+
+    .goldthink > .think {
+        color: bisque;
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-indent: -15px;
+        text-align:center;
+    }
+    .goldthink > .author {
+        color: bisque;
+        font-style:italic;
+        font-size: 1.2rem;
+        position:absolute;
+        right:25px;
+        bottom:0;
     }
 
 footer {
@@ -119,13 +138,34 @@ footer {
 nav{
     position:absolute;
     height:100vh;
-    width:150px;
+    width:400px;
+    min-width:15vw;
     background:rgba(0, 0, 0, 0.75);
     top:0;
-    right:0;
+    right:-400px;
 
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:middle;
+    font-size:5vh;
 }
+    nav > p {
+        font-size:1.2em;
+        font-weight:bold;
+        border-bottom: 1px solid white;
+        padding-left: 15%;
+        padding-bottom:20px;
+        transition-duration:2s;
+    }
+    nav > ul {
+        margin-top: 50px;
+        list-style-type: none;
+        padding: 1vh 1vw;
+    }
+
+    nav > ul > li{
+        font-size:0.8em;
+        border:2px solid white;
+        border-radius:25px;
+        text-align:center;
+        margin-bottom:15px;
+        background:#141212;
+    }

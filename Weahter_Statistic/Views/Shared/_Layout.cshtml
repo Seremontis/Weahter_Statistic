@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Weahter_Statistic</title>
+    <title>@ViewData["Title"] - Weather_Statistic</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -16,6 +16,7 @@
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
     </environment>
     <link rel="stylesheet" href="~/css/mainPage.css" />
+    <script type="text/javascript" src="~/js/mainpageJS.js"></script>
 </head>
 <body>
     <div class="myContainer">
@@ -23,7 +24,7 @@
             <div class="innerRow1">
                 <div class="boxLogo">
                     <div class="logo">
-
+                        <!--https://www.freepik.com/free-vector/lovely-monsoon-season-composition-with-flat-design_2631127.htm-->
                     </div>
                 </div>
                 <div class="boxHeader">
@@ -34,13 +35,16 @@
             </div>
             <div class="innerRow2">
                 <div class="goldthink">
-
+                    <p class="think">"Rozmowy o pogodzie staną się interesujące przy pierwszych oznakach końca świata."</p>
+                    <p class="author">Stanisław Jerzy Lec</p>
                 </div>
                 <div class="goldthink">
-
+                    <p class="think">"Trzęsienia ziemi są grymasami świata."</p>
+                    <p class="author">Leopold R. Nowak</p>
                 </div>
                 <div class="goldthink">
-
+                    <p class="think">"Deszcz jest maszyną do szycia, która przyszywa ziarno do ziemi."</p>
+                    <p class="author">Ramon Gomez de la Serna</p>
                 </div>
             </div>
         </div>       
@@ -50,10 +54,11 @@
         </div>
 
         <div class="menu">
-            Menu
+            <p id="textmenu">Menu</p>
         </div>
 
-        <nav>
+        <nav id="testnav">
+            <p>Menu:</p>
             <ul>
                 <li>
                     test1
