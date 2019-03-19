@@ -6,12 +6,12 @@ menuclick.addEventListener("click", showMenu);
 
 
 window.onclick = function (event) {
-    if (event.target== menu) {
+    if (event.target == bgmenu) {
         menu.style.right = "-400px";
         menu.style.transition = "2s ease";
         menuclick.style.right = "0";
         menuclick.style.transition = "2s ease";
-        bgmenu.display = "block";
+        bgmenu.style.display = "none";
     }
 }
 
@@ -21,14 +21,14 @@ function showMenu() {
         menu.style.transition = "2s ease";
         menuclick.style.right = "400px";
         menuclick.style.transition = "2s ease";
-        bgmenu.display = "block";
+        bgmenu.style.display = "block";
     }
     else {
         menu.style.right = "-400px";
         menu.style.transition = "2s ease";
         menuclick.style.right = "0";
         menuclick.style.transition = "2s ease";
-        bgmenu.display = "none";
+        bgmenu.style.display = "none";
     }
 }
 
