@@ -1,6 +1,8 @@
 ﻿html, body, .myContainer {
     height: 100%;
     width: 100%;
+    overflow-x:hidden;
+    margin:0;
 }
 
 
@@ -11,6 +13,7 @@ html, body {
 }
 
 .myContainer {
+    height:100%;
     display: grid;
     grid-template-rows: auto min-content;
 
@@ -19,7 +22,7 @@ html, body {
 .myRow {
     grid-row: 1;
     display: grid;
-    grid-template-rows: 2fr 14fr 4fr;
+    grid-template-rows: 1fr 5fr 3fr;
     grid-gap:10px;
 }
 
@@ -116,14 +119,25 @@ footer {
     text-align: center;
 }
 
+.bgmenu{
+    height:100%;
+    width:100%;
+    z-index:222;
+    display:none;
+    background:rgba(255, 228, 196,1);
+    position:fixed;
+    top:0;
+    left:0;
+}
+
 .menu{
     height:40px;
     width:100px;
     background:black;
     color:white;
 
-    position:absolute;
-    right:0;
+    position:fixed;
+    right:0px;
     top:5vh;
     display:flex;
     justify-content:center;
@@ -133,7 +147,10 @@ footer {
     border-bottom-left-radius:5px;
     border:2px solid white;
     border-right:none;
+
+    cursor:pointer;
 }
+
 
 nav{
     position:absolute;
@@ -146,6 +163,8 @@ nav{
 
     color:white;
     font-size:5vh;
+
+    border-left:1px solid white;
 }
     nav > p {
         font-size:1.2em;
@@ -153,7 +172,7 @@ nav{
         border-bottom: 1px solid white;
         padding-left: 15%;
         padding-bottom:20px;
-        transition-duration:2s;
+        z-index:2;
     }
     nav > ul {
         margin-top: 50px;
