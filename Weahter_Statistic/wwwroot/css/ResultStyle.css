@@ -1,0 +1,101 @@
+﻿html, body, .myContainer
+{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.myContainer {
+    display: grid;
+    grid-template-rows: 25vh auto 40px;
+    grid-gap: 15px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#004799+1,207cca+70,5eaae0+99 */
+    background: rgb(0,71,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(0,71,153,1) 1%, rgba(32,124,202,1) 70%, rgba(94,170,224,1) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,71,153,1) 1%,rgba(32,124,202,1) 70%,rgba(94,170,224,1) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,71,153,1) 1%,rgba(32,124,202,1) 70%,rgba(94,170,224,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004799', endColorstr='#5eaae0',GradientType=0 ); /* IE6-9 */
+}
+
+div.picture{
+    grid-row:1;
+    background:url('../picture/bubble.jpg');
+    background-size:cover;
+}
+
+.picture > .banner {
+    min-height: 40px;
+    height:auto;
+    max-height: 70px;
+    width: 100vw;
+    background: rgba(0,71,153,0.7);
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+
+.banner > .menu{
+    width:80vw;
+    display:table;
+    margin:auto;
+    height:100%;
+}
+
+.banner > .menu > .logo {
+    height: 40px;
+    width: 80px;
+    border: solid black 2px;
+    border-radius: 50%;
+    display: inline-block;
+    float:left;
+}
+
+nav{
+    display:inline-block;
+    margin-left:30px;
+    float:left;
+    border-right:2px solid black;
+    border-left:2px solid black;
+}
+
+.menu > nav > ul {
+    list-style: none;
+    color: red;
+    font-weight: bold;
+    padding-left: 0px;
+    display: flex;
+    height: 100%;
+    margin:auto;
+}
+
+
+nav > ul > li {
+    padding:auto;
+    padding-left:10px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    height: 100%;
+    text-align:center;
+    font-size:1.5vw;
+}
+
+.content{
+    color:aqua;
+    grid-row:2;
+}
+
+main{
+    width:80vw;
+    height:100%;
+    border:2px solid black;
+    margin:auto;
+}
+
+footer{
+    grid-row:3;
+    background:black;
+    color:white;
+    text-align:center;
+}

@@ -6,7 +6,7 @@
 }
 
 
-html, body {
+body {
     background: url('../picture/blue_sky.jpg') no-repeat;
     background-size:cover;
     background-position:bottom;

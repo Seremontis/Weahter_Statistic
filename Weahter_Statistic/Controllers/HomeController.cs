@@ -15,7 +15,7 @@ namespace Weahter_Statistic.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Searcher()
         {
             return View();
         }

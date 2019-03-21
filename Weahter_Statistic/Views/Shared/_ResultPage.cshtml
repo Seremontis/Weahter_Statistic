@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather_Statistic</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/ResultStyle.css" />
+
+    </environment>
+</head>
+<body>
+    <div class="myContainer">
+        <div class="picture">
+            <div class="banner">
+                <div class="menu">
+                    <div class="logo"></div>
+                    <nav>
+                        <ul>
+                            <li>test1</li>
+                            <li>test2</li>
+                            <li>test3</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+        <footer>
+            Stopka
+        </footer>
+    </div>
+    <script type="text/javascript" src="~/js/mainpageJS.js"></script>
+</body>
+</html>
+
