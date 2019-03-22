@@ -1,5 +1,4 @@
-﻿html, body, .myContainer
-{
+﻿html, body, .myContainer {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
@@ -18,15 +17,15 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004799', endColorstr='#5eaae0',GradientType=0 ); /* IE6-9 */
 }
 
-div.picture{
-    grid-row:1;
-    background:url('../picture/bubble.jpg');
-    background-size:cover;
+div.picture {
+    grid-row: 1;
+    background: url('../picture/bubble.jpg');
+    background-size: cover;
 }
 
 .picture > .banner {
     min-height: 40px;
-    height:auto;
+    height: auto;
     max-height: 70px;
     width: 100vw;
     background: rgba(0,71,153,0.7);
@@ -36,66 +35,172 @@ div.picture{
     margin: auto;
 }
 
-.banner > .menu{
-    width:80vw;
-    display:table;
-    margin:auto;
-    height:100%;
+.banner > .menu {
+    width: 80vw;
+    display: table;
+    margin: auto;
+    height: 100%;
 }
 
-.banner > .menu > .logo {
-    height: 40px;
-    width: 80px;
-    border: solid black 2px;
-    border-radius: 50%;
+    .banner > .menu > .logo {
+        height: 40px;
+        width: 80px;
+        border: solid black 2px;
+        border-radius: 50%;
+        display: inline-block;
+        float: left;
+    }
+
+nav {
     display: inline-block;
-    float:left;
+    margin-left: 30px;
+    float: left;
+    z-index: 999;
 }
 
-nav{
-    display:inline-block;
-    margin-left:30px;
-    float:left;
-    border-right:2px solid black;
-    border-left:2px solid black;
-}
-
-.menu > nav > ul {
+.menu > nav > .mainNav {
     list-style: none;
     color: red;
     font-weight: bold;
     padding-left: 0px;
     display: flex;
     height: 100%;
-    margin:auto;
+    margin: auto;
 }
 
 
-nav > ul > li {
-    padding:auto;
-    padding-left:10px;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+nav > .mainNav > li {
+    padding-left: 10px;
     height: 100%;
-    text-align:center;
-    font-size:1.5vw;
+    text-align: center;
+    font-size: 1vw;
 }
 
-.content{
-    color:aqua;
-    grid-row:2;
+.navOption {
+    list-style-type: none;
+    text-align: center;
+    margin: 25px;
+    position: relative;
 }
 
-main{
-    width:80vw;
-    height:100%;
-    border:2px solid black;
+    .navOption > li {
+        background: blue;
+        display: none;
+    }
+
+    .navOption:hover > li {
+        display: block;
+    }
+
+    .navOption > li:first-child {
+        padding-top: 30px;
+    }
+
+.content {
+    color: aqua;
+    grid-row: 2;
+}
+
+main {
+    width: 80vw;
+    height: 100%;
+    border: 2px solid black;
+    margin: auto;
+}
+
+article {
+    padding: 20px;
+    height: 100%;
+}
+
+
+.title {
+    border-bottom: 2px solid black;
+}
+
+    .title > form {
+        min-width: 250px;
+        width: 40vw;
+        margin: auto;
+    }
+
+.resultSection {
+    height: calc(100% - 56px);
+    border: 1px solid black;
+}
+
+    .resultSection > h1 {
+        color: burlywood;
+        text-align: center;
+    }
+
+.default {
+    min-height: 200px;
+    width: 100%;
+    background: rgba(128, 128, 128, 0.3);
+}
+
+    .default:nth-child(2n) {
+        background: rgba(208, 171, 171, 0.3);
+    }
+
+
+.line {
+    width: 250px;
+    display: flex;
+    margin: auto;
+}
+
+/*wykres*/
+.half-circle {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    background-color: gold;
+    border-top-left-radius: 110px; /* 100px of height + 10px of border */
+    border-top-right-radius: 110px; /* 100px of height + 10px of border */
+    border: 10px solid yellow;
+    border-bottom: 0;
+}
+
+.line > .linecenter{
+position:relative;
+transform:translateY(25%);
+}
+.righttext {
+    padding-left: 20px;
+}
+
+.groupImage{
+    display:block;
+}
+
+.groupImage > img{
+    display:block;
+    height:100px;
+    width:auto;
     margin:auto;
 }
 
-footer{
-    grid-row:3;
-    background:black;
-    color:white;
-    text-align:center;
+.authors {
+    font-size: 8px;
+    color: black;
+    text-align: center;
 }
+
+.authors>a{
+    text-decoration:none;
+    color:black;
+    
+}
+
+.temperature{
+    display:flex;
+}
+
+footer {
+    grid-row: 3;
+    background: black;
+    color: white;
+    text-align: center;
+}
+

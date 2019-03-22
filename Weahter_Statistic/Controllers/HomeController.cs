@@ -20,6 +20,19 @@ namespace Weahter_Statistic.Controllers
             return View();
         }
 
+        public IActionResult SearcherTwo()
+        {
+            return View();
+        }
+        public IActionResult ManyDaysCity()
+        {
+            return View();
+        }
+        public IActionResult ManyDaysCompares()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

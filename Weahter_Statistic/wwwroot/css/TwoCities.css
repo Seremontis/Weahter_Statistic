@@ -1,0 +1,25 @@
+﻿.twoCities{
+    display:grid;
+    grid-template-columns:50% 50%;
+    text-align:center;
+}
+.hleft{
+    grid-column:1;
+    border-right:1px solid black;
+}
+
+.hright {
+    grid-column: 2;
+    border-left: 1px solid black;
+}
+
+h1{
+    margin-bottom:0;
+    padding-bottom:10px;
+}
+
+.divide {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}

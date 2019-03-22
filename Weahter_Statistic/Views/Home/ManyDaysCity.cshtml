@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Searcher";
+    ViewData["Title"] = "ManyDaysCity";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
 }
 
@@ -24,13 +24,24 @@
         <div class="default">
             <h3>Wschód i zachód słońca</h3>
 
-            <div class="line">
-                <div class="linecenter">6:22</div>
-                <div class="half-circle">
-                </div>
-                <div class="linecenter">6:22</div>
-            </div>
+            <div class="">
+                <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 0; i < 20; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 0; i < 20; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="default">
             <h3>Ciśnienie</h3>
@@ -115,7 +126,8 @@
             <div class="line">
                 <div class="groupImage">
                     <img src="~/picture/visibility.svg" />
-                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>                </div>
+                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                </div>
                 <div class="linecenter righttext"> 20km</div>
             </div>
         </div>

@@ -6,9 +6,15 @@
     <title>Weather_Statistic</title>
 
     <environment include="Development">
+
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/ResultStyle.css" />
 
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+        
     </environment>
 </head>
 <body>
@@ -18,10 +24,37 @@
                 <div class="menu">
                     <div class="logo"></div>
                     <nav>
-                        <ul>
-                            <li>test1</li>
-                            <li>test2</li>
-                            <li>test3</li>
+                        <ul class="mainNav">
+                            <li><a asp-action="Index">Strona główna</a></li>
+                            <li>
+                                <ul class="navOption">
+                                    Dane przeszłe dla jednego miasta
+                                    <li>wczoraj</li>
+                                    <li>ostatnie 3 dni</li>
+                                    <li>ostatnie 7 dni</li>
+                                    <li>ostatnie 14 dni</li>
+                                    <li>ostatnie 21 dni</li>
+                                    <li>ostatnie 30 dni</li>
+                                    <li>niestandardowe</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="navOption">
+                                    Dane przeszłe dla dwóch miast
+                                    <li>wczoraj</li>
+                                    <li>ostatnie 3 dni</li>
+                                    <li>ostatnie 7 dni</li>
+                                    <li>ostatnie 14 dni</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="navOption">
+                                    Prognozy
+                                    <li>jutro</li>
+                                    <li>nadchodzące 3 dni</li>
+                                    <li>nadchodzące 7 dni</li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -36,7 +69,6 @@
             Stopka
         </footer>
     </div>
-    <script type="text/javascript" src="~/js/mainpageJS.js"></script>
 </body>
 </html>
 
