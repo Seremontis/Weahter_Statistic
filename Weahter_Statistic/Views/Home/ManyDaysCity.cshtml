@@ -28,14 +28,65 @@
                 <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
                 <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
                     <tr>
-                        @for (int i = 0; i < 20; i++)
+                        @for (int i = 8; i <= 14; i++)
                         {
                             <th scope="col">test @i</th>
                         }
                     </tr>
                     <tr>
-                        @for (int i = 0; i < 20; i++)
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="default">
+            <h3>Ciśnienie</h3>
+            <div class="">
+                <div id="pressure" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test cis @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
                         {
                             <td>test wynik @i</td>
                         }
@@ -44,91 +95,239 @@
             </div>
         </div>
         <div class="default">
-            <h3>Ciśnienie</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/barometer.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext">1024hPa</div>
-            </div>
-        </div>
-        <div class="default">
             <h3>Wilgotność</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/humidity.svg" />
-                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> 100%</div>
+            <div class="">
+                <div id="humidity" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+
+                <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                </table>
+
             </div>
         </div>
         <div class="default">
             <h3>Zachmurzenie</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/cloudy.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> 100%</div>
+            <div class="">
+                <div id="cloudy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+
+                <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                </table>
+
             </div>
         </div>
         <div class="default ">
             <h3>Temperatura minimalna i maksymalna</h3>
             <div class="temperature">
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/warm.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext"> 25&degC </div>
-                </div>
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/cold.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext"> -25&degC</div>
+                <div class="">
+                    <div id="temperatures" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <th class="col-1 bg-secondary">test @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <td class="col-1">test @i</td>
+                            }
+                        </tr>
+                    </table>
+                    <br />
+                    <table class="table table-bordered table-dark">
+                        <tr>
+                            @for (int i = 8; i <= 14; i++)
+                            {
+                                <th scope="col">test @i</th>
+                            }
+                        </tr>
+                        <tr>
+                            @for (int i = 8; i <= 14; i++)
+                            {
+                                <td>test wynik @i</td>
+                            }
+                        </tr>
+                    </table>
+
                 </div>
             </div>
         </div>
         <div class="default">
             <h3>Opady</h3>
             <div class="temperature">
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/rain.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext"> 0mm </div>
-                </div>
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/snow.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext"> 0mm</div>
+                <div class="">
+                    <div id="rainy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <th class="col-1 bg-secondary">test @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <td class="col-1">test @i</td>
+                            }
+                        </tr>
+                    </table>
+                    <br />
+                    <table class="table table-bordered table-dark">
+                        <tr>
+                            @for (int i = 8; i <= 14; i++)
+                            {
+                                <th scope="col">test @i</th>
+                            }
+                        </tr>
+                        <tr>
+                            @for (int i = 8; i <= 14; i++)
+                            {
+                                <td>test wynik @i</td>
+                            }
+                        </tr>
+                    </table>
+
                 </div>
             </div>
         </div>
         <div class="default">
             <h3>Prędkość i kierunek wiatru</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/windy.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> 20 km/h E</div>
+            <div class="">
+                <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">\/</td>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>></td>
+                        }
+                    </tr>
+                </table>
+
             </div>
         </div>
         <div class="default">
             <h3>Widoczność</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/visibility.svg" />
-                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> 20km</div>
+            <div class="">
+                <div id="visible" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+
+                <table class="table table-bordered table-dark">
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <th class="col-1 bg-secondary">test @i</th>
+                        }
+                    </tr>
+                    <tr class="d-flex">
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <td class="col-1">test @i</td>
+                        }
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <th scope="col">test @i</th>
+                        }
+                    </tr>
+                    <tr>
+                        @for (int i = 8; i <= 14; i++)
+                        {
+                            <td>test wynik @i</td>
+                        }
+                    </tr>
+                </table>
+
             </div>
         </div>
     </section>

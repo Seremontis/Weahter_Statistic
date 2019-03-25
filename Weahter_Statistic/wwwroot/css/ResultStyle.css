@@ -104,19 +104,13 @@ nav > .mainNav > li {
 main {
     width: 80vw;
     height: 100%;
-    border: 2px solid black;
     margin: auto;
 }
 
 article {
-    padding: 20px;
     height: 100%;
 }
 
-
-.title {
-    border-bottom: 2px solid black;
-}
 
     .title > form {
         min-width: 250px;
