@@ -4,20 +4,23 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Weahter_Statistic.Models;
+using Weather_Statistic.Models;
 
-namespace Weahter_Statistic.Controllers
+namespace Weather_Statistic.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Searcher()
+        public async Task<IActionResult> Searcher()
         {
-            return View();
+            var Weather = new WeatherConnect();
+            var model1 = await Weather.ResultOneSearch();        
+            return View(model1);
         }
 
         public IActionResult SearcherTwo()

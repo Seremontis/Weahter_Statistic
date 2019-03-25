@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Weahter_Statistic": {
+    "Weather_Statistic": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
