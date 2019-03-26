@@ -18,14 +18,57 @@ namespace Weather_Statistic.Models
             Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, yesterday, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
             OneInfoModel oneInfo = new OneInfoModel
-            {             
-                Pressure= cut.Pressure,
-                Humadity=cut.Humidity,
-                Cloudy = cut.CloudCover,
+            {
+                Pressure = cut.Pressure,
+                Humadity = cut.Humidity * 100,
+                Cloudy = cut.CloudCover * 100,
                 Sunrise = cut.SunriseTime.DateTime,
-                Sunset = cut.SunsetTime.DateTime
+                Sunset = cut.SunsetTime.DateTime,
+                Rainfall = cut.PrecipitationIntensity,
+                TypeWeat = cut.PrecipitationType,
+                MaxTemp = cut.HighTemperature,
+                MinTemp = cut.LowTemperature,
+                Windspeed = (float)(Math.Round(cut.WindSpeed * 1.609344, 2)),
+                Direct = ConvertDirect(cut.WindBearing),
+                Visible = cut.Visibility<1?cut.Visibility*1000:cut.Visibility,
+                TypeSpeed= cut.Visibility < 1 ? Speed.m: Speed.km,
             };
-            return oneInfo;          
+            return oneInfo;        
+            
+        }
+
+        private Direction ConvertDirect(float degree)
+        {
+            Direction direction=0;
+            switch (degree)
+            {
+                case float x when ((x >= 0 && x <= 25) || (x >335 && x <= 360)):
+                    direction = Direction.N;
+                    break;
+                case float x when ((x > 25 && x <= 65)):
+                    direction = Direction.NE;
+                    break;
+                case float x when ((x > 65 && x <= 115)):
+                    direction = Direction.E;
+                    break;
+                case float x when ((x > 115 && x <= 155)):
+                    direction = Direction.SE;
+                    break;
+                case float x when ((x > 155 && x <= 205)):
+                    direction = Direction.S;
+                    break;
+                case float x when ((x > 205 && x <= 245)):
+                    direction = Direction.SW;
+                    break;
+                case float x when ((x > 245 && x <= 300)):
+                    direction = Direction.W;
+                    break;
+                case float x when ((x > 300 && x <= 335)):
+                    direction = Direction.NW;
+                    break;
+            }
+
+            return direction;
         }
     }
 }

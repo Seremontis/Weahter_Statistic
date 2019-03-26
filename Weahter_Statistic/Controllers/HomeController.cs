@@ -32,7 +32,7 @@ namespace Weather_Statistic.Controllers
 
             var address = name.GetPoint(town);         
             var model1 = await Weather.ResultOneSearch(address.Item1,address.Item2);
-            model1.place = address.Item3;
+            model1.Place = address.Item3;
 
             return View("Searcher",model1);
         }
