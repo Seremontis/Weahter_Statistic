@@ -1,4 +1,4 @@
-﻿@model Weather_Statistic.Models.OneInfo
+﻿@model Weather_Statistic.Models.OneInfoModel
 @{ 
     ViewData["Title"] = "Searcher";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
@@ -10,17 +10,22 @@
 <article>
 
     <section>
-        <form>
+        <form method="get" asp-controller="Home" asp-action="Town">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+                <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="button" id="button-addon2">Button</button>
+                    <input type="submit" class="btn btn-dark" id="button-addon2" value="Szukaj" />
                 </div>
             </div>
         </form>
     </section>
-    <section class="resultSection">
-        <h1>Wyniki dla: </h1>
+    @if (ViewBag.flag != true) {
+        <h2>Podaj miasto</h2>
+    }
+    else
+    {
+  <section class="resultSection">
+        <h1>Wyniki dla: @Model.place</h1>
         <div class="default">
             <h3>Wschód i zachód słońca</h3>
 
@@ -39,7 +44,7 @@
                     <img src="~/picture/barometer.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext">1024hPa</div>
+                <div class="linecenter righttext">@Model.Pressure hPa</div>
             </div>
         </div>
         <div class="default">
@@ -49,7 +54,7 @@
                     <img src="~/picture/humidity.svg" />
                     <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> 100%</div>
+                <div class="linecenter righttext"> @{Model.Humadity * 100}</div>
             </div>
         </div>
         <div class="default">
@@ -59,10 +64,13 @@
                     <img src="~/picture/cloudy.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> 100%</div>
-            </div>
-        </div>
-        <div class="default ">
+                <div class="linecenter righttext"> @{Model.Cloudy * 100}% </div>
+
+</div>
+
+</div>
+
+<div class="default ">
             <h3>Temperatura minimalna i maksymalna</h3>
             <div class="temperature">
                 <div class="line">
@@ -121,4 +129,5 @@
             </div>
         </div>
     </section>
+    }
 </article>

@@ -16,11 +16,25 @@ namespace Weather_Statistic.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Searcher()
+        [HttpGet]
+        public IActionResult Searcher()
         {
+            ViewBag.flag = false;
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Town(string town)
+        {
+            ViewBag.flag= true;
             var Weather = new WeatherConnect();
-            var model1 = await Weather.ResultOneSearch();        
-            return View(model1);
+            LocationName name = new LocationName();
+
+            var address = name.GetPoint(town);         
+            var model1 = await Weather.ResultOneSearch(address.Item1,address.Item2);
+            model1.place = address.Item3;
+
+            return View("Searcher",model1);
         }
 
         public IActionResult SearcherTwo()
