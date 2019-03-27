@@ -23,3 +23,7 @@ h1{
     grid-template-columns: 50% 50%;
     text-align: center;
 }
+
+.block{
+    display:block;
+}

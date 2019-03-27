@@ -57,7 +57,10 @@ namespace Weather_Statistic
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=SearcherTwo}/{id?}");
+                /*routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");*/
             });
         }
     }

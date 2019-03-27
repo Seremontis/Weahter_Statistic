@@ -86,10 +86,12 @@ nav > .mainNav > li {
     .navOption > li {
         background: blue;
         display: none;
+        z-index: 9999;
     }
 
     .navOption:hover > li {
         display: block;
+        z-index: 9999;
     }
 
     .navOption > li:first-child {

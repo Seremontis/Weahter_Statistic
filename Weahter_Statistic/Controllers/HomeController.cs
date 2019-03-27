@@ -24,14 +24,14 @@ namespace Weather_Statistic.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Town(string town)
+        public IActionResult Town(string town)
         {
             ViewBag.flag= true;
             var Weather = new WeatherConnect();
             LocationName name = new LocationName();
 
             var address = name.GetPoint(town);         
-            var model1 = await Weather.ResultOneSearch(address.Item1,address.Item2);
+            var model1 = Weather.ResultOneSearch(address.Item1,address.Item2).Result;
             model1.Place = address.Item3;
 
             return View("Searcher",model1);
@@ -39,8 +39,31 @@ namespace Weather_Statistic.Controllers
 
         public IActionResult SearcherTwo()
         {
+            ViewBag.flag = false;
             return View();
         }
+
+        [HttpGet]
+        public IActionResult TwoTowns(string town1,string town2)
+        {
+            ViewBag.flag = true;
+            var Weather = new WeatherConnect();
+            LocationName name = new LocationName();
+            MultiDayCompares models = new MultiDayCompares();
+            (double, double, string)[] locations = { (name.GetPoint(town1)), (name.GetPoint(town2)) };
+
+            var mod = Weather.ResultOneSearch(locations[0].Item1, locations[0].Item2).Result;
+            models.City1.Add(mod);
+            models.City1[0].Place=locations[0].Item3;
+            mod = null;
+            mod= Weather.ResultOneSearch(locations[1].Item1, locations[1].Item2).Result;
+            models.City2.Add(mod);
+            models.City2[0].Place = locations[1].Item3;
+            
+            
+            return View("SearcherTwo", models);
+        }
+
         public IActionResult ManyDaysCity()
         {
             return View();
