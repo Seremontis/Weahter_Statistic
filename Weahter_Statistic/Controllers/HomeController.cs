@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Weather_Statistic.Models;
 
+
+/// <summary>
+///  Json parse require
+/// </summary>
 namespace Weather_Statistic.Controllers
 {
     public class HomeController : Controller
     {
+        private CollectData collect = new CollectData();
 
         public IActionResult Index()
         {
@@ -17,56 +22,56 @@ namespace Weather_Statistic.Controllers
         }
 
         [HttpGet]
-        public IActionResult Searcher()
+        public IActionResult Searcher(int days)
         {
             ViewBag.flag = false;
+            ViewBag.operation = "Town";
+            ViewBag.days = days;
             return View();
         }
 
         [HttpGet]
-        public IActionResult Town(string town)
+        public IActionResult Town(string town,int days=1)
         {
             ViewBag.flag= true;
-            var Weather = new WeatherConnect();
-            LocationName name = new LocationName();
-
-            var address = name.GetPoint(town);         
-            var model1 = Weather.ResultOneSearch(address.Item1,address.Item2).Result;
-            model1.Place = address.Item3;
-
-            return View("Searcher",model1);
+            ViewBag.operation = "Town";
+            ViewBag.days = days;
+            var models = collect.CreateList(town, days);
+            return View("Searcher",models);
         }
 
-        public IActionResult SearcherTwo()
+        public IActionResult SearcherTwo(int days)
         {
             ViewBag.flag = false;
+            ViewBag.days = days;
             return View();
         }
 
         [HttpGet]
-        public IActionResult TwoTowns(string town1,string town2)
+        public IActionResult TwoTowns(string town1,string town2,int days=1)
         {
             ViewBag.flag = true;
-            var Weather = new WeatherConnect();
-            LocationName name = new LocationName();
-            MultiDayCompares models = new MultiDayCompares();
-            (double, double, string)[] locations = { (name.GetPoint(town1)), (name.GetPoint(town2)) };
-
-            var mod = Weather.ResultOneSearch(locations[0].Item1, locations[0].Item2).Result;
-            models.City1.Add(mod);
-            models.City1[0].Place=locations[0].Item3;
-            mod = null;
-            mod= Weather.ResultOneSearch(locations[1].Item1, locations[1].Item2).Result;
-            models.City2.Add(mod);
-            models.City2[0].Place = locations[1].Item3;
-            
+            ViewBag.days = days;
+            var models = collect.CreateList(town1, town2, days);
             
             return View("SearcherTwo", models);
         }
 
-        public IActionResult ManyDaysCity()
+        public IActionResult SearcherDays(int days=2)
         {
-            return View();
+            ViewBag.flag = false;
+            ViewBag.operation = "ManyDaysCity";
+            ViewBag.days = days;
+            return View("ManyDaysCity");
+        }
+
+        public IActionResult ManyDaysCity(string town,int days)
+        {
+            ViewBag.flag = true;
+            ViewBag.operation = "ManyDaysCity";
+            ViewBag.days = days;
+            var models = collect.CreateList(town, days);
+            return View(models);
         }
         public IActionResult ManyDaysCompares()
         {

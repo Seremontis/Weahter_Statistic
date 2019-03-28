@@ -1,334 +1,244 @@
-﻿
+﻿@model List<Weather_Statistic.Models.OneInfoModel>;
 @{
     ViewData["Title"] = "ManyDaysCity";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
+
+    if (ViewBag.operation == null)
+    {
+        ViewBag.operation = "ManyDaysCity";
+    }
+
+    if (ViewBag.days == null)
+    {
+        ViewBag.days = 0;
+    }
 }
 
 <head>
-    <script src="~/js/mychart.js"></script>
+
+
 </head>
 <article>
 
     <section class="title">
-        <form>
+        <form asp-controller="Home" asp-action="@ViewBag.operation" method="get">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+                <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+                <input type="hidden" name="days" value="@ViewBag.days">
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="button" id="button-addon2">Button</button>
+                    <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
                 </div>
             </div>
         </form>
     </section>
-    <section class="resultSection">
-        <h1>Wyniki dla: </h1>
-        <div class="default">
-            <h3>Wschód i zachód słońca</h3>
+    @if (ViewBag.flag != true)
+    {
+        <section>
+            <h2>Podaj miasto/miasta</h2>
+            <p class="test"></p>
+        </section>
+    }
+    else
+    {
+        <section class="resultSection">
+            <h1>Wyniki dla: @Model[0].Place</h1>
+            <div class="default">
+                <h3>Wschód i zachód słońca</h3>
 
-            <div class="">
-                <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+                <div class="">
+                    <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                </table>
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                int temp = i + 1;
+                                <th class="col-1 bg-secondary">Dzień @temp</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Sunrise</td>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Sunset</td>
+                            }
+                        </tr>
+                    </table>
 
+                </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Ciśnienie</h3>
-            <div class="">
-                <div id="pressure" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test cis @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                </table>
+            <div class="default">
+                <h3>Ciśnienie</h3>
+                <div class="">
+                    <div id="pressure" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                <th class="col-1 bg-secondary">Dzień @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Pressure</td>
+                            }
+                        </tr>
+                    </table>
+                    <br />
+                </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Wilgotność</h3>
-            <div class="">
-                <div id="humidity" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+            <div class="default">
+                <h3>Wilgotność</h3>
+                <div class="">
+                    <div id="humidity" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                </table>
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                <th class="col-1 bg-secondary">Dzień @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Humadity</td>
+                            }
+                        </tr>
+                    </table>
 
+                </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Zachmurzenie</h3>
-            <div class="">
-                <div id="cloudy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+            <div class="default">
+                <h3>Zachmurzenie</h3>
+                <div class="">
+                    <div id="cloudy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                <th class="col-1 bg-secondary">Dzień @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Pressure</td>
+                            }
+                        </tr>
+                    </table>
 
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                </table>
-
+                </div>
             </div>
-        </div>
-        <div class="default ">
-            <h3>Temperatura minimalna i maksymalna</h3>
-            <div class="temperature">
+            <div class="default ">
+                <h3>Temperatura minimalna i maksymalna</h3>
                 <div class="">
                     <div id="temperatures" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 1; i <= 12; i++)
+                            @for (int i = 0; i < ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">test @i</th>
+                                <th class="col-1 bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex">
-                            @for (int i = 1; i <= 12; i++)
+                            @foreach (var item in Model)
                             {
-                                <td class="col-1">test @i</td>
+                                <td class="col-1">@item.MaxTemp</td>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.MinTemp</td>
                             }
                         </tr>
                     </table>
-                    <br />
-                    <table class="table table-bordered table-dark">
-                        <tr>
-                            @for (int i = 8; i <= 14; i++)
-                            {
-                                <th scope="col">test @i</th>
-                            }
-                        </tr>
-                        <tr>
-                            @for (int i = 8; i <= 14; i++)
-                            {
-                                <td>test wynik @i</td>
-                            }
-                        </tr>
-                    </table>
-
                 </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Opady</h3>
-            <div class="temperature">
+            <div class="default">
+                <h3>Opady</h3>
                 <div class="">
                     <div id="rainy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 1; i <= 12; i++)
+                            @for (int i = 0; i < ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">test @i</th>
+                                <th class="col-1 bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex">
-                            @for (int i = 1; i <= 12; i++)
+                            @foreach (var item in Model)
                             {
-                                <td class="col-1">test @i</td>
+                                <td class="col-1">@item.Rainfall @item.TypeWeat</td>
                             }
                         </tr>
                     </table>
-                    <br />
+                </div>
+            </div>
+            <div class="default">
+                <h3>Prędkość i kierunek wiatru</h3>
+                <div class="">
                     <table class="table table-bordered table-dark">
-                        <tr>
-                            @for (int i = 8; i <= 14; i++)
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
                             {
-                                <th scope="col">test @i</th>
+                                <th class="col-1 bg-secondary">Dzień @i</th>
                             }
                         </tr>
-                        <tr>
-                            @for (int i = 8; i <= 14; i++)
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
                             {
-                                <td>test wynik @i</td>
+                                <td class="col-1">@item.Windspeed</td>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Direct</td>
                             }
                         </tr>
                     </table>
 
                 </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Prędkość i kierunek wiatru</h3>
-            <div class="">
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">\/</td>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>></td>
-                        }
-                    </tr>
-                </table>
+            <div class="default">
+                <h3>Widoczność</h3>
+                <div class="">
+                    <div id="visible" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
 
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            @for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                <th class="col-1 bg-secondary">Dzień @i</th>
+                            }
+                        </tr>
+                        <tr class="d-flex">
+                            @foreach (var item in Model)
+                            {
+                                <td class="col-1">@item.Visible @item.TypeLeng</td>
+                            }
+                        </tr>
+                    </table>
+
+                </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Widoczność</h3>
-            <div class="">
-                <div id="visible" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
-                <table class="table table-bordered table-dark">
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <th class="col-1 bg-secondary">test @i</th>
-                        }
-                    </tr>
-                    <tr class="d-flex">
-                        @for (int i = 1; i <= 12; i++)
-                        {
-                            <td class="col-1">test @i</td>
-                        }
-                    </tr>
-                </table>
-                <br />
-                <table class="table table-bordered table-dark">
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <th scope="col">test @i</th>
-                        }
-                    </tr>
-                    <tr>
-                        @for (int i = 8; i <= 14; i++)
-                        {
-                            <td>test wynik @i</td>
-                        }
-                    </tr>
-                </table>
-
-            </div>
-        </div>
-    </section>
+        </section>
+    }
 </article>
+@if(Model!=null){
+<script>
+    var test;
+</script>
+}
+
+<script src="~/js/mychart.js"> 
+</script>

@@ -7,8 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/mainPage.css" />
-        
+        <link rel="stylesheet" href="~/css/mainPage.css" />       
     </environment>
     <!--<environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
@@ -63,13 +62,13 @@
         <p>Menu:</p>
         <ul>
             <li>
-                <a asp-action="Searcher">Jedno miasto-wczoraj</a>
+                <a asp-action="Searcher" asp-route-days="1">Jedno miasto-wczoraj</a>
             </li>
             <li>
-                <a asp-action="SearcherTwo">Dwa miasta-wczoraj</a>
+                <a asp-action="SearcherTwo" asp-route-days="1">Dwa miasta-wczoraj</a>
             </li>
             <li>
-                test3
+                <a asp-action="SearcherDays" asp-route-days="3">Dwa miasta-wczoraj</a>
             </li>
             <li>
                 test4

@@ -2,6 +2,16 @@
 @{ 
     ViewData["Title"] = "Searcher";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
+    if (ViewBag.operation == null)
+    {
+        ViewBag.operation = "Town";
+    }
+
+    if (ViewBag.days == null)
+    {
+        ViewBag.days = 0;
+    }
+
 }
 
 <head>
@@ -10,9 +20,10 @@
 <article>
 
     <section>
-        <form method="get" asp-controller="Home" asp-action="Town">
+        <form method="get" asp-controller="Home" asp-action="@ViewBag.operation">
             <div class="input-group mb-3">
                 <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+                <input type="hidden" name="days" value="@ViewBag.days">
                 <div class="input-group-append">
                     <input type="submit" class="btn btn-dark" id="button-addon2" value="Szukaj" />
                 </div>
@@ -137,7 +148,7 @@
                     <img src="~/picture/windy.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> @Model.Windspeed km/h @Model.Direct.ToString()</div>
+                <div class="linecenter righttext"> @Model.Windspeed km/h @Model.Direct</div>
             </div>
         </div>
         <div class="default">
@@ -148,7 +159,7 @@
                     <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
                 <div class="linecenter righttext">
-                    <p>@Model.Visible @Model.TypeSpeed</p>
+                    <p>@Model.Visible @Model.TypeLeng</p>
                 </div>
             </div>
         </div>

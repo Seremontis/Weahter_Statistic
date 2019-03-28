@@ -11,11 +11,11 @@ namespace Weather_Statistic.Models
     {
         readonly DarkSkyService client = new DarkSkyService("63713b898acfdab954a9dd0ecea69e3c");
 
-        async public Task<OneInfoModel> ResultOneSearch(double lati,double longti)
+        async public Task<OneInfoModel> ResultOneSearch(double lati,double longti,DateTime dateTime)
         {
             var exclusionList = new List<Exclude> { Exclude.Currently,Exclude.Hourly };
-            DateTime yesterday = DateTime.Now.AddDays(-1);
-            Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, yesterday, Unit.Auto, exclusionList);
+            //DateTime yesterday = DateTime.Now.AddDays(-1);
+            Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
             OneInfoModel oneInfo = new OneInfoModel
             {
@@ -31,7 +31,7 @@ namespace Weather_Statistic.Models
                 Windspeed = (float)(Math.Round(cut.WindSpeed * 1.609344, 2)),
                 Direct = ConvertDirect(cut.WindBearing),
                 Visible = cut.Visibility<1?cut.Visibility*1000:cut.Visibility,
-                TypeSpeed= cut.Visibility < 1 ? Speed.m: Speed.km,
+                TypeLeng= cut.Visibility < 1 ? Leng.m: Leng.km,
             };
             return oneInfo;        
             

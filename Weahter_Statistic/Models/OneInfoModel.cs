@@ -18,7 +18,7 @@ namespace Weather_Statistic.Models
         NW
     }
 
-    public enum Speed
+    public enum Leng
     {
         m,
         km,
@@ -40,6 +40,6 @@ namespace Weather_Statistic.Models
         public float Windspeed { get; set; }
         public Direction Direct { get; set; }
         public float Visible { get; set; }
-        public Speed TypeSpeed { get; set; }
+        public Leng TypeLeng { get; set; }
     }
 }
