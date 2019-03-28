@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Weather_Statistic.Models;
 
 
+
 /// <summary>
 ///  Json parse require
 /// </summary>

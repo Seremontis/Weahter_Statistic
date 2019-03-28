@@ -1,4 +1,13 @@
-﻿
+﻿var arrayRiseSet;
+if (arrayInfo != null) {
+    arrayRiseSet = new Array(arrayInfo.length);
+    for (let i = 0; i < arrayInfo.length; i++) {
+        arrayRiseSet[i] = new Array(2);
+        arrayRiseSet[i][0] = arrayInfo[i].sunrise.substring(11, 16).replace(':','.');
+        arrayRiseSet[i][1] = arrayInfo[i].sunset.substring(11, 16).replace(':', '.');
+    }
+}
+
 $(document).ready(function () {
 
     // ManyDaysCity sun
@@ -18,16 +27,11 @@ $(document).ready(function () {
         },
 
         xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6',
-                '7', '8', '9', '10', '11', '12']
+            categories: arrayDate
         },
 
         yAxis: {
-            title: {
-                text: 'Godzina'
-            },
-            min: 0,
-            max: 24
+            categories: arrayDate
         },
 
         tooltip: {
@@ -38,9 +42,8 @@ $(document).ready(function () {
             columnrange: {
                 dataLabels: {
                     enabled: true,
-                    format: '{y}°C',
+                    format: '{y}',
                     x: 24
-
                 }
             }
         },
@@ -51,20 +54,7 @@ $(document).ready(function () {
 
         series: [{
             name: 'Temperatures',
-            data: [
-                [9.9, 10.3],
-                [8.6, 8.5],
-                [10.2, 11.8],
-                [1.7, 12.2],
-                [0.6, 23.1],
-                [3.7, 25.4],
-                [6.0, 26.2],
-                [6.7, 21.4],
-                [3.5, 19.5],
-                [1.3, 16.0],
-                [8.7, 9.4],
-                [9.0, 8.6]
-            ]
+            data: arrayRiseSet
         }]
 
     });
