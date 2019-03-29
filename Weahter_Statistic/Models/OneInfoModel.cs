@@ -29,8 +29,8 @@ namespace Weather_Statistic.Models
     {
         public string TypeWeat { get; set; }
         public string Place { get; set; }
-        public DateTimeOffset Sunrise { get; set; }
-        public DateTimeOffset Sunset { get; set; }
+        public DateTime Sunrise { get; set; }
+        public DateTime Sunset { get; set; }
         public float MaxTemp { get; set; }
         public float MinTemp { get; set; }
         public float Pressure { get; set; }
@@ -41,5 +41,7 @@ namespace Weather_Statistic.Models
         public Direction Direct { get; set; }
         public float Visible { get; set; }
         public Leng TypeLeng { get; set; }
+        public long SunriseStamp { get; set; }
+        public long SunsetStamp { get; set; }
     }
 }

@@ -30,9 +30,11 @@ namespace Weather_Statistic.Models
                 MinTemp = cut.LowTemperature,
                 Windspeed = (float)(Math.Round(cut.WindSpeed * 1.609344, 2)),
                 Direct = ConvertDirect(cut.WindBearing),
-                Visible = cut.Visibility<1?cut.Visibility*1000:cut.Visibility,
-                TypeLeng= cut.Visibility < 1 ? Leng.m: Leng.km,
-            };
+                Visible = cut.Visibility < 1 ? cut.Visibility * 1000 : cut.Visibility,
+                TypeLeng = cut.Visibility < 1 ? Leng.m : Leng.km,
+                SunriseStamp = cut.SunriseTime.TimeOfDay.Ticks,
+                SunsetStamp = cut.SunsetTime.TimeOfDay.Ticks,
+            };      
             return oneInfo;        
             
         }

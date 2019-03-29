@@ -241,7 +241,9 @@
 @if (Model != null) {
 <script>
      arrayInfo =@Html.Raw(Json.Serialize(Model));
-     arrayDate =@Html.Raw(Json.Serialize(Model.Select(x=>x.Sunrise.ToString("dd/MM/yyyy"))));
+    arrayDate =@Html.Raw(Json.Serialize(Model.Select(x=>x.Sunrise.ToString("dd/MM/yyyy"))));
+
+
 </script>
 }
 

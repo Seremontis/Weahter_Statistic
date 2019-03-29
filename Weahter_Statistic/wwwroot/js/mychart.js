@@ -3,10 +3,12 @@ if (arrayInfo != null) {
     arrayRiseSet = new Array(arrayInfo.length);
     for (let i = 0; i < arrayInfo.length; i++) {
         arrayRiseSet[i] = new Array(2);
-        arrayRiseSet[i][0] = arrayInfo[i].sunrise.substring(11, 16).replace(':','.');
-        arrayRiseSet[i][1] = arrayInfo[i].sunset.substring(11, 16).replace(':', '.');
+        arrayRiseSet[i][0] = arrayInfo[i].sunriseStamp;
+        arrayRiseSet[i][1] = arrayInfo[i].sunsetStamp;
     }
 }
+
+var ppp = [[2.1, 2.3],[5.8, 9.9]];
 
 $(document).ready(function () {
 
@@ -27,25 +29,34 @@ $(document).ready(function () {
         },
 
         xAxis: {
+            type: 'datetime',
             categories: arrayDate
         },
 
         yAxis: {
-            categories: arrayDate
+            labels: {
+                formatter: function () {
+                    return Highcharts.dateFormat('%H:%M', this.value)
+                }
+            },
+            min: 0,
+            max: 864000000000,
         },
 
         tooltip: {
-            valueSuffix: '°C'
+            enabled: false
         },
 
         plotOptions: {
             columnrange: {
                 dataLabels: {
                     enabled: true,
-                    format: '{y}',
+                    formatter: function () {
+                        return Highcharts.dateFormat('%H:%M', this.y)
+                    },
                     x: 24
                 }
-            }
+            }          
         },
 
         legend: {
@@ -53,8 +64,8 @@ $(document).ready(function () {
         },
 
         series: [{
-            name: 'Temperatures',
-            data: arrayRiseSet
+            name: 'Godzina',
+            data: arrayRiseSet,
         }]
 
     });
