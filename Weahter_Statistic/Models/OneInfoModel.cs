@@ -27,6 +27,7 @@ namespace Weather_Statistic.Models
 
     public class OneInfoModel
     {
+        public Int32 Day { get; set; }
         public string TypeWeat { get; set; }
         public string Place { get; set; }
         public DateTime Sunrise { get; set; }

@@ -1,14 +1,20 @@
-﻿var arrayRiseSet;
+﻿var arrayRiseSet, arrayPressure,arrayHum;
 if (arrayInfo != null) {
     arrayRiseSet = new Array(arrayInfo.length);
+    arrayPressure = new Array(arrayInfo.length);
+    arrayHum = new Array(arrayInfo.length);
     for (let i = 0; i < arrayInfo.length; i++) {
         arrayRiseSet[i] = new Array(2);
         arrayRiseSet[i][0] = arrayInfo[i].sunriseStamp;
         arrayRiseSet[i][1] = arrayInfo[i].sunsetStamp;
+
+        arrayPressure[i] = arrayInfo[i].pressure;
+        arrayHum[i] = arrayInfo[i].humadity;
     }
+
 }
 
-var ppp = [[2.1, 2.3],[5.8, 9.9]];
+
 
 $(document).ready(function () {
 
@@ -83,17 +89,14 @@ $(document).ready(function () {
                 ' ' : ' '
         },
         xAxis: {
-            type: 'datetime',
-            labels: {
-                formatter: function () {
-                    return Highcharts.dateFormat("%b %e", this.value)
-                }
-            }
+            categories: arrayDate
         },
         yAxis: {
             title: {
                 text: 'Ciśnienie'
             },
+            min: 950,
+            max:1060
         },
         legend: {
             enabled: false
@@ -133,7 +136,7 @@ $(document).ready(function () {
             },
             type: 'area',
             name: 'hPa',
-            data: [[1519862400000, 1024], [1519948800000, 1014], [1520035200000, 1000], [1520121600000, 1040]],         
+            data: arrayPressure      
         }]
     });
 
@@ -143,22 +146,18 @@ $(document).ready(function () {
             type: 'bar'
         },
         title: {
-            text: 'Historic World Population by Region'
+            text: 'Stopień zachmurzenia'
         },
         subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+            text: 'Dane od ' + arrayDate[0] + ' do ' + arrayDate[arrayDate.length-1]
         },
         xAxis: {
-            type:'datetime',
-            categories: [1519862400000,1519948800000,1520035200000, 1520121600000],
+            //type:'datetime',
+            categories: arrayDate,
             title: {
-                text: null
+                text: 'Data'
             },
-            labels: {
-                formatter: function () {
-                    return Highcharts.dateFormat("%b %e", this.value)
-                }
-            }
+            
         },
         yAxis: {
             min: 0,
@@ -172,12 +171,13 @@ $(document).ready(function () {
             }
         },
         tooltip: {
-            valueSuffix: ' %'
+            valueSuffix: '{y}%'
         },
         plotOptions: {
             bar: {
                 dataLabels: {
-                    enabled: true
+                    enabled: true,
+                    format: '{y}%'
                 }
             }
         },
@@ -197,7 +197,7 @@ $(document).ready(function () {
         },
         series: [{
             name: 'City',
-            data: [60, 31, 35, 20, 100]
+            data: arrayHum
         }]
     });
 

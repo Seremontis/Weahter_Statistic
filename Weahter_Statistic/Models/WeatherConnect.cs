@@ -17,8 +17,11 @@ namespace Weather_Statistic.Models
             //DateTime yesterday = DateTime.Now.AddDays(-1);
             Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
+            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+
             OneInfoModel oneInfo = new OneInfoModel
             {
+                Day = cut.Time.ToUnixTime(),
                 Pressure = cut.Pressure,
                 Humadity = cut.Humidity * 100,
                 Cloudy = cut.CloudCover * 100,
