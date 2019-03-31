@@ -36,10 +36,11 @@ namespace Weather_Statistic.Models
         public float MinTemp { get; set; }
         public float Pressure { get; set; }
         public float Humadity { get; set; }
-        public float Cloudy { get; set; }
+        public int Cloudy { get; set; }
         public float Rainfall { get; set; }
         public float Windspeed { get; set; }
         public Direction Direct { get; set; }
+        public float DirectNumber { get; set; }
         public float Visible { get; set; }
         public Leng TypeLeng { get; set; }
         public long SunriseStamp { get; set; }

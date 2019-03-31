@@ -108,7 +108,7 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.Humadity</td>
+                            <td class="col-1">@item.Humadity%</td>
                             }
                         </tr>
                     </table>
@@ -129,11 +129,10 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.Pressure</td>
+                                <td class="col-1">@item.Cloudy%</td>
                             }
                         </tr>
                     </table>
-
                 </div>
             </div>
             <div class="default ">
@@ -186,6 +185,7 @@
             <div class="default">
                 <h3>Prędkość i kierunek wiatru</h3>
                 <div class="">
+                    <div id="windchart" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
                             @for (int i = 0; i < ViewBag.days; i++)
@@ -246,6 +246,6 @@
 
 </script>
 }
-
+<script src="https://code.highcharts.com/modules/windbarb.js"></script>
 <script src="~/js/mychart.js"> 
 </script>
