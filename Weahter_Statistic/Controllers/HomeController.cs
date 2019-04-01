@@ -32,7 +32,7 @@ namespace Weather_Statistic.Controllers
         }
 
         [HttpGet]
-        public IActionResult Town(string town,int days=1)
+        public IActionResult Town(string town,int days=2)
         {
             ViewBag.flag= true;
             ViewBag.operation = "Town";
@@ -58,25 +58,33 @@ namespace Weather_Statistic.Controllers
             return View("SearcherTwo", models);
         }
 
-        public IActionResult SearcherDays(int days=2)
+        public IActionResult ManyDaysCity(int days=2)
         {
             ViewBag.flag = false;
-            ViewBag.operation = "ManyDaysCity";
             ViewBag.days = days;
-            return View("ManyDaysCity");
+            return View();
         }
 
-        public IActionResult ManyDaysCity(string town,int days)
+        public IActionResult ManyDaysCityResult(string town,int days)
         {
             ViewBag.flag = true;
-            ViewBag.operation = "ManyDaysCity";
             ViewBag.days = days;
             var models = collect.CreateList(town, days);
-            return View(models);
+            return View("ManyDaysCity",models);
         }
-        public IActionResult ManyDaysCompares()
+        public IActionResult ManyDaysCompares(int days=2)
         {
+            ViewBag.flag = false;
+            ViewBag.days = days;
             return View();
+        }
+
+        public IActionResult ManyDaysComparesResult(string town1,string town2,int days)
+        {
+            ViewBag.flag = true;
+            ViewBag.days = days;
+            var models = collect.CreateList(town1,town2, days);
+            return View("ManyDaysCompares", models);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

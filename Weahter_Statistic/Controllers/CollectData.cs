@@ -8,16 +8,16 @@ namespace Weather_Statistic
 {
     public class CollectData
     {
-        private MultiDayCompares modelsResult;
+        private MultiDaysCompares modelsResult;
         private List<OneInfoModel> infoModel;
 
         public CollectData()
         {
-            modelsResult = new MultiDayCompares();
+            modelsResult = new MultiDaysCompares();
             infoModel = new List<OneInfoModel>();
         }
 
-        public MultiDayCompares CreateList(string town1, string town2,int days)
+        public MultiDaysCompares CreateList(string town1, string town2,int days)
         {
             var geo = DownLocation(town1, town2);
             DateTime time = DateTime.Now;
@@ -38,7 +38,7 @@ namespace Weather_Statistic
             {
                 infoModel.Add(DownWeather(geo.Item1, geo.Item2, time.AddDays(-1 - i)));
             }
-            if (infoModel[0] != null){
+            if (infoModel != null){
                 infoModel[0].Place = geo.Item3;
             }
             

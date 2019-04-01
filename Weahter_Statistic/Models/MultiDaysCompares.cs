@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Weather_Statistic.Models
 {
-    public class MultiDayCompares
+    public class MultiDaysCompares
     {
-        public MultiDayCompares()
+        public MultiDaysCompares()
         {
             City1 = new List<OneInfoModel>();
             City2 = new List<OneInfoModel>();

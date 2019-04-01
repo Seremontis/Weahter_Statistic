@@ -43,7 +43,7 @@ namespace Weather_Statistic.Models
         public float DirectNumber { get; set; }
         public float Visible { get; set; }
         public Leng TypeLeng { get; set; }
-        public long SunriseStamp { get; set; }
-        public long SunsetStamp { get; set; }
+        public List<int> SunriseTime { get; set; }
+        public List<int> SunsetTime { get; set; }
     }
 }

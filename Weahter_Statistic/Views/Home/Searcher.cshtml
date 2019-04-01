@@ -1,17 +1,12 @@
-﻿@model Weather_Statistic.Models.OneInfoModel
+﻿@model List<Weather_Statistic.Models.OneInfoModel>
 @{ 
     ViewData["Title"] = "Searcher";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
-    if (ViewBag.operation == null)
-    {
-        ViewBag.operation = "Town";
-    }
 
     if (ViewBag.days == null)
     {
-        ViewBag.days = 0;
+        ViewBag.days = 1;
     }
-
 }
 
 <head>
@@ -20,7 +15,7 @@
 <article>
 
     <section>
-        <form method="get" asp-controller="Home" asp-action="@ViewBag.operation">
+        <form method="get" asp-controller="Home" asp-action="Town">
             <div class="input-group mb-3">
                 <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
                 <input type="hidden" name="days" value="@ViewBag.days">
@@ -38,15 +33,15 @@
     else
     {
   <section class="resultSection">
-        <h1>Wyniki dla: @Model.Place</h1>
+        <h1>Wyniki dla: @Model[0].Place</h1>
         <div class="default">
             <h3>Wschód i zachód słońca</h3>
 
             <div class="line">
-                <div class="linecenter">@Model.Sunrise</div>
+                <div class="linecenter">@Model[0].Sunrise</div>
                 <div class="half-circle">
                 </div>
-                <div class="linecenter">@Model.Sunset</div>
+                <div class="linecenter">@Model[0].Sunset</div>
             </div>
 
         </div>
@@ -57,7 +52,7 @@
                     <img src="~/picture/barometer.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext">@Model.Pressure hPa</div>
+                <div class="linecenter righttext">@Model[0].Pressure hPa</div>
             </div>
         </div>
         <div class="default">
@@ -67,7 +62,7 @@
                     <img src="~/picture/humidity.svg" />
                     <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> @Model.Humadity%</div>
+                <div class="linecenter righttext"> @Model[0].Humadity%</div>
             </div>
         </div>
         <div class="default">
@@ -77,7 +72,7 @@
                     <img src="~/picture/cloudy.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> @Model.Cloudy% </div>
+                <div class="linecenter righttext"> @Model[0].Cloudy% </div>
 
 </div>
 
@@ -91,14 +86,14 @@
                         <img src="~/picture/warm.svg" />
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
-                    <div class="linecenter righttext"> @Model.MinTemp&degC </div>
+                    <div class="linecenter righttext"> @Model[0].MinTemp&degC </div>
                 </div>
                 <div class="line">
                     <div class="groupImage">
                         <img src="~/picture/cold.svg" />
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
-                    <div class="linecenter righttext"> @Model.MaxTemp&degC</div>
+                    <div class="linecenter righttext"> @Model[0].MaxTemp&degC</div>
                 </div>
             </div>
         </div>
@@ -111,9 +106,9 @@
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
                     <div class="linecenter righttext">
-                        @if (Model.TypeWeat == "rain" || Model.TypeWeat == "sleet")
+                        @if (Model[0].TypeWeat == "rain" || Model[0].TypeWeat == "sleet")
                         {
-                            <p>@Model.Rainfall mm</p>
+                            <p>@Model[0].Rainfall mm</p>
                         }
                         else
                         {
@@ -129,9 +124,9 @@
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
                     <div class="linecenter righttext">
-                        @if (Model.TypeWeat == "snow" || Model.TypeWeat == "sleet")
+                        @if (Model[0].TypeWeat == "snow" || Model[0].TypeWeat == "sleet")
                         {
-                            <p>@Model.Rainfall mm</p>
+                            <p>@Model[0].Rainfall mm</p>
                         }
                         else
                         {
@@ -148,7 +143,7 @@
                     <img src="~/picture/windy.svg" />
                     <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
-                <div class="linecenter righttext"> @Model.Windspeed km/h @Model.Direct</div>
+                <div class="linecenter righttext"> @Model[0].Windspeed km/h @Model[0].Direct</div>
             </div>
         </div>
         <div class="default">
@@ -159,7 +154,7 @@
                     <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                 </div>
                 <div class="linecenter righttext">
-                    <p>@Model.Visible @Model.TypeLeng</p>
+                    <p>@Model[0].Visible @Model[0].TypeLeng</p>
                 </div>
             </div>
         </div>

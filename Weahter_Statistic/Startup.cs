@@ -57,7 +57,7 @@ namespace Weather_Statistic
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=SearcherDays}/{id?}");
+                    template: "{controller=Home}/{action=ManyDaysCompares}/{id?}");
                 /*routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");*/

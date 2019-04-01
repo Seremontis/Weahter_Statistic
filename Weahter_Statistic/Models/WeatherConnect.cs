@@ -17,7 +17,6 @@ namespace Weather_Statistic.Models
             //DateTime yesterday = DateTime.Now.AddDays(-1);
             Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
-            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
             OneInfoModel oneInfo = new OneInfoModel
             {
@@ -36,11 +35,20 @@ namespace Weather_Statistic.Models
                 DirectNumber=cut.WindBearing,
                 Visible = cut.Visibility < 1 ? cut.Visibility * 1000 : cut.Visibility,
                 TypeLeng = cut.Visibility < 1 ? Leng.m : Leng.km,
-                SunriseStamp = cut.SunriseTime.TimeOfDay.Ticks,
-                SunsetStamp = cut.SunsetTime.TimeOfDay.Ticks,
+                SunriseTime = ListTime(cut.SunriseTime.TimeOfDay),
+                SunsetTime = ListTime(cut.SunsetTime.TimeOfDay)
             };      
             return oneInfo;        
             
+        }
+
+        private List<int> ListTime(TimeSpan day)
+        {
+            List<int> temp = new List<int>();
+            temp.Add(day.Hours);
+            temp.Add(day.Minutes);
+            temp.Add(day.Seconds);
+            return temp;
         }
 
         private Direction ConvertDirect(float degree)

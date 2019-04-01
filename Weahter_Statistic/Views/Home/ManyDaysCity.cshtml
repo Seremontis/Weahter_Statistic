@@ -2,16 +2,6 @@
 @{
     ViewData["Title"] = "ManyDaysCity";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
-
-    if (ViewBag.operation == null)
-    {
-        ViewBag.operation = "ManyDaysCity";
-    }
-
-    if (ViewBag.days == null)
-    {
-        ViewBag.days = 0;
-    }
 }
 
 <head>
@@ -21,7 +11,7 @@
 <article>
 
     <section class="title">
-        <form asp-controller="Home" asp-action="@ViewBag.operation" method="get">
+        <form asp-controller="Home" asp-action="ManyDaysCityResult" method="get">
             <div class="input-group mb-3">
                 <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
                 <input type="hidden" name="days" value="@ViewBag.days">
@@ -34,7 +24,7 @@
     @if (ViewBag.flag != true)
     {
         <section>
-            <h2>Podaj miasto/miasta</h2>
+            <h2>Podaj miasta</h2>
             <p class="test"></p>
         </section>
     }
@@ -196,7 +186,7 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.Windspeed</td>
+                                <td class="col-1">@item.Windspeed km/h</td>
                             }
                         </tr>
                         <tr class="d-flex">
@@ -247,5 +237,5 @@
 </script>
 }
 <script src="https://code.highcharts.com/modules/windbarb.js"></script>
-<script src="~/js/mychart.js"> 
+<script src="~/js/mychartone.js"> 
 </script>
