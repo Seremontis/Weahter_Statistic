@@ -76,7 +76,7 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.Pressure</td>
+                                <td class="col-1">@item.Pressure hPa</td>
                             }
                         </tr>
                     </table>
@@ -140,13 +140,13 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.MaxTemp</td>
+                                <td class="col-1">@item.MaxTemp&degC</td>
                             }
                         </tr>
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.MinTemp</td>
+                            <td class="col-1">@item.MinTemp&degC</td>
                             }
                         </tr>
                     </table>
@@ -214,7 +214,7 @@
                         <tr class="d-flex">
                             @foreach (var item in Model)
                             {
-                                <td class="col-1">@item.Visible @item.TypeLeng</td>
+                                <td class="col-1">@item.Visible @item.TypeLeng km</td>
                             }
                         </tr>
                     </table>

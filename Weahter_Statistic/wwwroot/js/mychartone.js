@@ -105,7 +105,7 @@ $(document).ready(function () {
 
         yAxis: {
             type: 'datetime',
-            tickInterval: 3600,
+            tickInterval: 3600*1000,
             min: Date.UTC(2019, 0, 1, 0, 0, 0),
             max: Date.UTC(2019, 0, 2, 0, 0, 0),
             dateTimeLabelFormats: {
@@ -149,8 +149,7 @@ $(document).ready(function () {
             text: 'Ciśnienie w danym okresie'
         },
         subtitle: {
-            text: document.ontouchstart === undefined ?
-                ' ' : ' '
+            text: subtitleTxt
         },
         xAxis: {
             categories: arrayDate
@@ -193,11 +192,6 @@ $(document).ready(function () {
         },
 
         series: [{
-            labels: {
-                formatter: function () {
-                    return Highcharts.dateFormat("%b %e", this.value)
-                }
-            },
             type: 'area',
             name: 'hPa',
             data: arrayPressure      
@@ -207,7 +201,7 @@ $(document).ready(function () {
     // ManyDaysCity humidity
     Highcharts.chart('humidity', {
         chart: {
-            type: 'bar'
+            type: 'column'
         },
         title: {
             text: 'Poziom wilgotności'
@@ -267,7 +261,7 @@ $(document).ready(function () {
     // ManyDaysCity cloudy
     Highcharts.chart('cloudy', {
         chart: {
-            type: 'bar'
+            type: 'column'
         },
         title: {
             text: 'Poziom zachmurzenia'
@@ -416,19 +410,6 @@ $(document).ready(function () {
             },
             data: results
         }]
-
-            /*data: [{
-                y: 3.9,
-                marker: {
-                    symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
-                }
-            }, {
-                    y: 4.2,
-                    marker: {
-                        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
-                    }
-                },5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }]*/
     });
 
     //ManyDaysCity wind
