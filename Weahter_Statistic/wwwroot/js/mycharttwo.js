@@ -1,14 +1,37 @@
-﻿var arrayRiseSet1, arrayRiseSet2,arrayPressure1,arrayPressure2,arrayHum1,arrayHum2,arrayClo1,arrayClo2,arrayTemp,arrayTemp;
-
+﻿//create array from C# data
 DeclareArray();
 FillArray();
 
+// variables access in the some charts
 var subtitleTxt = 'Dane od ' + arrayDate[0] + ' do ' + arrayDate[arrayDate.length - 1];
 var city1 = arrayInfo1[0].place;
 var city2 = arrayInfo2[0].place;
 
 var color1 = '#D25252';
 var color2 = '#ce5c00';
+
+var visibleStart = StartPoint();
+var visibleEnd = EndPoint();
+
+
+//functions to ready data to charts
+function StartPoint () {
+    num1=Math.min.apply(null, arrayVis1);
+    num2 = Math.min.apply(null, arrayVis2);
+    if (num1 > num2)
+        return num2;
+    else
+        return num1
+}
+
+function EndPoint() {
+    num1 = Math.max.apply(null, arrayVis1);
+    num2 = Math.max.apply(null, arrayVis2);
+    if (num1 < num2)
+        return num2;
+    else
+        return num1
+}
 
 function DeclareArray() {
     arrayRiseSet1 = new Array(arrayInfo1.length);
@@ -28,7 +51,6 @@ function DeclareArray() {
     arrayVis1 = new Array(arrayInfo1.length);
     arrayVis2 = new Array(arrayInfo1.length);
 }
-
 
 function FillArray() {
     for (var i = 0; i < arrayInfo1.length; i++) {
@@ -102,6 +124,8 @@ function SetTime(array) {
     return date;
 }
 
+
+//create charts
 $(document).ready(function () {
 
     // ManyDaysCompares sun
@@ -572,7 +596,7 @@ $(document).ready(function () {
                         color: '#606060'
                     }
                 }
-            }, { // Fresh breeze
+            }, { 
                 from: 10,
                 to: 999,
                 color: 'rgba(68, 170, 213, 0.1)',
@@ -583,34 +607,41 @@ $(document).ready(function () {
                     }
                 }
             }],
-            min: 0,
+            min: visibleStart*0.8,
+            max:visibleEnd*1.2
         },
         tooltip: {
             valueSuffix: 'km'
         },
         plotOptions: {
             spline: {
-                lineWidth: 4,
+                lineWidth: 2,
                 states: {
                     hover: {
                         lineWidth: 5
                     }
                 },
                 marker: {
-                    enabled: false
+                    enabled: true
                 },
             }
         },
         series: [{
             name: city1,
             data: arrayVis1,
-            color:color1
+            color: color1,
+            marker: {
+                symbol:'circle'
+            }
 
         },
             {
                 name: city2,
                 data: arrayVis2,
-                color: color2
+                color: color2,
+                marker: {
+                    symbol: 'triangle',
+                }
 
             }],
         navigation: {

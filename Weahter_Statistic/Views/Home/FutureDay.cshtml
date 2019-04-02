@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "FutureDay";
+    Layout = "~/Views/Shared/_ResultPage.cshtml";
+}
+
+<head>
+
+
+</head>
+<article>
+
+    <section class="title">
+        <form asp-controller="Home" asp-action="ManyDaysCityResult" method="get">
+            <div class="input-group mb-3">
+                <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+                <input type="hidden" name="days" value="@ViewBag.days">
+                <div class="input-group-append">
+                    <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    if (ViewBag.flag != true)
+    {
+        <section>
+            <h2>Podaj miasto</h2>
+        </section>
+    }
+    else
+    {
+        <section class="resultSection">
+            <h1>Wyniki dla: Model[0].Place</h1>
+            <div class="default">
+                <h3>Godzinowa prognoza pogody na ....</h3>
+                <div class="">
+                    <div id="futhours" style="max-width: 800px; min-width: 380px; height: 310px; margin: 0 auto">
+                        <div style="margin-top: 100px; text-align: center" id="loading">
+                            <i class="fa fa-spinner fa-spin"></i> Loading data from external source
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-dark">
+                        <tr class="d-flex">
+                            for (int i = 0; i < ViewBag.days; i++)
+                            {
+                                int temp = i + 1;
+                                <th class="col-1 bg-secondary">Dzień temp</th>
+                            }
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </section>
+    }
+
+</article>
+
+<script>
+    var arrayInfo = null;
+    var arrayDate = null;
+</script>
+@if (Model != null)
+{
+    <script>
+     //arrayInfo =Html.Raw(Json.Serialize(Model));
+    //arrayDate =Html.Raw(Json.Serialize(Model.Select(x=>x.Sunrise.ToString("dd/MM/yyyy"))));
+
+
+    </script>
+}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/windbarb.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://highcharts.github.io/pattern-fill/pattern-fill-v2.js"></script>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+<script src="~/js/mychartfuture.js">
+
+</script>

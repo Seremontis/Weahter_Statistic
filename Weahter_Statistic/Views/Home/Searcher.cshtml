@@ -1,5 +1,5 @@
 ﻿@model List<Weather_Statistic.Models.OneInfoModel>
-@{ 
+@{
     ViewData["Title"] = "Searcher";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
 
@@ -9,9 +9,6 @@
     }
 }
 
-<head>
-    <script src="~/js/mychart.js"></script>
-</head>
 <article>
 
     <section>
@@ -25,139 +22,142 @@
             </div>
         </form>
     </section>
-    @if (ViewBag.flag != true) {
-    <section>
-        <h2>Podaj miasto</h2>
-    </section>
+    @if (ViewBag.flag != true)
+    {
+        <section>
+            <h2>Podaj miasto</h2>
+        </section>
     }
     else
     {
-  <section class="resultSection">
-        <h1>Wyniki dla: @Model[0].Place</h1>
-        <div class="default">
-            <h3>Wschód i zachód słońca</h3>
+        <section class="resultSection">
+            <h1>Wyniki dla: @Model[0].Place</h1>
+            <div class="default">
+                <h3>Wschód i zachód słońca</h3>
 
-            <div class="line">
-                <div class="linecenter">@Model[0].Sunrise</div>
-                <div class="half-circle">
+                <div class="line">
+                    <div class="linecenter">@Model[0].Sunrise</div>
+                    <div class="half-circle">
+                    </div>
+                    <div class="linecenter">@Model[0].Sunset</div>
                 </div>
-                <div class="linecenter">@Model[0].Sunset</div>
+
             </div>
-
-        </div>
-        <div class="default">
-            <h3>Ciśnienie</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/barometer.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext">@Model[0].Pressure hPa</div>
-            </div>
-        </div>
-        <div class="default">
-            <h3>Wilgotność</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/humidity.svg" />
-                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> @Model[0].Humadity%</div>
-            </div>
-        </div>
-        <div class="default">
-            <h3>Zachmurzenie</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/cloudy.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> @Model[0].Cloudy% </div>
-
-</div>
-
-</div>
-
-<div class="default ">
-            <h3>Temperatura minimalna i maksymalna</h3>
-            <div class="temperature">
+            <div class="default">
+                <h3>Ciśnienie</h3>
                 <div class="line">
                     <div class="groupImage">
-                        <img src="~/picture/warm.svg" />
+                        <img src="~/picture/barometer.svg" />
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
-                    <div class="linecenter righttext"> @Model[0].MinTemp&degC </div>
-                </div>
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/cold.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext"> @Model[0].MaxTemp&degC</div>
+                    <div class="linecenter righttext">@Model[0].Pressure hPa</div>
                 </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Opady</h3>
-            <div class="temperature">
+            <div class="default">
+                <h3>Wilgotność</h3>
                 <div class="line">
                     <div class="groupImage">
-                        <img src="~/picture/rain.svg" />
+                        <img src="~/picture/humidity.svg" />
+                        <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                    </div>
+                    <div class="linecenter righttext"> @Model[0].Humadity%</div>
+                </div>
+            </div>
+            <div class="default">
+                <h3>Zachmurzenie</h3>
+                <div class="line">
+                    <div class="groupImage">
+                        <img src="~/picture/cloudy.svg" />
                         <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                    </div>
+                    <div class="linecenter righttext"> @Model[0].Cloudy% </div>
+
+                </div>
+
+            </div>
+
+            <div class="default ">
+                <h3>Temperatura minimalna i maksymalna</h3>
+                <div class="temperature">
+                    <div class="line">
+                        <div class="groupImage">
+                            <img src="~/picture/warm.svg" />
+                            <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                        </div>
+                        <div class="linecenter righttext"> @Model[0].MinTemp&degC </div>
+                    </div>
+                    <div class="line">
+                        <div class="groupImage">
+                            <img src="~/picture/cold.svg" />
+                            <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                        </div>
+                        <div class="linecenter righttext"> @Model[0].MaxTemp&degC</div>
+                    </div>
+                </div>
+            </div>
+            <div class="default">
+                <h3>Opady</h3>
+                <div class="temperature">
+                    <div class="line">
+                        <div class="groupImage">
+                            <img src="~/picture/rain.svg" />
+                            <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                        </div>
+                        <div class="linecenter righttext">
+                            @if (Model[0].TypeWeat == "rain" || Model[0].TypeWeat == "sleet")
+                            {
+                                <p>@Model[0].Rainfall mm</p>
+                            }
+                            else
+                            {
+                                <p>0 mm</p>
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="line">
+                        <div class="groupImage">
+                            <img src="~/picture/snow.svg" />
+                            <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                        </div>
+                        <div class="linecenter righttext">
+                            @if (Model[0].TypeWeat == "snow" || Model[0].TypeWeat == "sleet")
+                            {
+                                <p>@Model[0].Rainfall mm</p>
+                            }
+                            else
+                            {
+                                <p>0 mm</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="default">
+                <h3>Prędkość i kierunek wiatru</h3>
+                <div class="line">
+                    <div class="groupImage">
+                        <img src="~/picture/windy.svg" />
+                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                    </div>
+                    <div class="linecenter righttext"> @Model[0].Windspeed km/h @Model[0].Direct</div>
+                </div>
+            </div>
+            <div class="default">
+                <h3>Widoczność</h3>
+                <div class="line">
+                    <div class="groupImage">
+                        <img src="~/picture/visibility.svg" />
+                        <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     </div>
                     <div class="linecenter righttext">
-                        @if (Model[0].TypeWeat == "rain" || Model[0].TypeWeat == "sleet")
-                        {
-                            <p>@Model[0].Rainfall mm</p>
-                        }
-                        else
-                        {
-                            <p>0 mm</p>
-                        }
-                    </div>
-
-                </div>
-
-                <div class="line">
-                    <div class="groupImage">
-                        <img src="~/picture/snow.svg" />
-                        <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                    </div>
-                    <div class="linecenter righttext">
-                        @if (Model[0].TypeWeat == "snow" || Model[0].TypeWeat == "sleet")
-                        {
-                            <p>@Model[0].Rainfall mm</p>
-                        }
-                        else
-                        {
-                            <p>0 mm</p>
-                        }
+                        <p>@Model[0].Visible @Model[0].TypeLeng</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="default">
-            <h3>Prędkość i kierunek wiatru</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/windy.svg" />
-                    <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext"> @Model[0].Windspeed km/h @Model[0].Direct</div>
-            </div>
-        </div>
-        <div class="default">
-            <h3>Widoczność</h3>
-            <div class="line">
-                <div class="groupImage">
-                    <img src="~/picture/visibility.svg" />
-                    <div class="authors">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                </div>
-                <div class="linecenter righttext">
-                    <p>@Model[0].Visible @Model[0].TypeLeng</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     }
 </article>
+
+<script src="~/js/mychartone.js"></script>

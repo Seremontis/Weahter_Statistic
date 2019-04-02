@@ -55,15 +55,16 @@ namespace Weather_Statistic
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
+
+                /*routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=ManyDaysCompares}/{id?}");
+                    template: "{controller=Home}/{action=ManyDaysCompares}/{id?}");*/
                 /*routes.MapRoute(
                 name: "default",
                 template: "{controller=Home}/{action=ManyDaysCity}/{id?}");*/
-                /*routes.MapRoute(
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");*/
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

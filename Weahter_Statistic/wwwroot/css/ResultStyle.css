@@ -43,10 +43,15 @@ div.picture {
 }
 
     .banner > .menu > .logo {
-        height: 40px;
-        width: 80px;
-        border: solid black 2px;
+        background: url('../picture/logo.jpg');
+        background-size: 5vw;
+        height: 5vw;
+        width: 5vw;
+        border: 2px solid black;
         border-radius: 50%;
+        right: 5vw;
+        max-height: 40px;
+        max-width: 80px;
         display: inline-block;
         float: left;
     }

@@ -32,3 +32,14 @@ function showMenu() {
     }
 }
 
+
+//JQuery
+/*$(document).ready(function () {
+    $(".detailmenu").hover(
+        function () {
+            $(this).find('ul').slideDown();
+        },
+        function () {
+            $(this).find('ul').slideUp();
+        });
+});*/
