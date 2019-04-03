@@ -34,7 +34,7 @@ function showMenu() {
 
 
 //JQuery
-/*$(document).ready(function () {
+$(document).ready(function () {
     $(".detailmenu").hover(
         function () {
             $(this).find('ul').slideDown();
@@ -42,4 +42,4 @@ function showMenu() {
         function () {
             $(this).find('ul').slideUp();
         });
-});*/
+});

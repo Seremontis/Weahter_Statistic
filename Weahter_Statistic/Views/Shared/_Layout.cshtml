@@ -8,7 +8,8 @@
     <environment include="Development">
         <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/mainPage.css" />       
+        <link rel="stylesheet" href="~/css/mainPage.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </environment>   
    
 </head>
@@ -59,10 +60,11 @@
                 <div class="detailmenu">
                     <p> Dane dla jednego miasta</p>
                     <ul class="undermenu">
-                        <li>test1</li>
-                        <li>test1</li>
-                        <li>test1</li>
-                        <li>test1</li>
+                        <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="3">3 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="7">7 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="14">14 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="31">31 dni</a></li>
                     </ul>
                 </div>
             </li>
@@ -70,15 +72,16 @@
                 <div class="detailmenu">
                     <p>Porównywarka miast</p>
                     <ul class="undermenu">
-                        <li>test1</li>
-                        <li>test1</li>
-                        <li>test1</li>
-                        <li>test1</li>
+                        <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="3">3 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="7">7 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="14">14 dni</a></li>
+                        <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="31">31 dni</a></li>
                     </ul>
                 </div>
             </li>
-            <li>
-                Prognoza na jutro
+            <li class="future">
+                <p>Prognoza na jutro (X)</p>
             </li>
         </ul>
     </nav>

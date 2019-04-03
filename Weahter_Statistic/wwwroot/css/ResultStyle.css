@@ -1,14 +1,16 @@
-﻿html, body, .myContainer {
-    height: 100%;
+﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+html, body, .myContainer {
+    height: auto;
     width: 100%;
-    overflow-x: hidden;
     margin: 0;
 }
 
 .myContainer {
     display: grid;
-    grid-template-rows: 25vh auto 40px;
+    grid-template-rows: 300px auto 40px;
     grid-gap: 15px;
+    height:100%;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#004799+1,207cca+70,5eaae0+99 */
     background: rgb(0,71,153); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(0,71,153,1) 1%, rgba(32,124,202,1) 70%, rgba(94,170,224,1) 99%); /* FF3.6-15 */
@@ -24,19 +26,16 @@ div.picture {
 }
 
 .picture > .banner {
-    min-height: 40px;
-    height: auto;
-    max-height: 70px;
-    width: 100vw;
+    height: 70px;
+    width: 100%;
+    min-width:100%;
     background: rgba(0,71,153,0.7);
     display: flex;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin: auto;
 }
 
 .banner > .menu {
-    width: 80vw;
+    min-width:810px;
+    width: 80%;
     display: table;
     margin: auto;
     height: 100%;
@@ -44,47 +43,66 @@ div.picture {
 
     .banner > .menu > .logo {
         background: url('../picture/logo.jpg');
-        background-size: 5vw;
-        height: 5vw;
-        width: 5vw;
+        background-size: cover;
+        height: 60px;
+        width: 60px;
         border: 2px solid black;
         border-radius: 50%;
-        right: 5vw;
-        max-height: 40px;
-        max-width: 80px;
         display: inline-block;
         float: left;
+        margin-top:5px;
+        margin-right:10px;
     }
 
 nav {
     display: inline-block;
     margin-left: 30px;
+    margin-top: 5px;
     float: left;
     z-index: 999;
+    height: 60px;
+    background: rgba(5, 5, 5, 0.25);
+    border-radius: 25px;
+    min-width: 710px;
+    width: calc(100% - 100px);
 }
 
 .menu > nav > .mainNav {
+    padding: 0;
+    margin: 0;
+    padding-right: 30px;
     list-style: none;
     color: red;
     font-weight: bold;
-    padding-left: 0px;
-    display: flex;
+    display: inline-block;
     height: 100%;
-    margin: auto;
 }
 
 
 nav > .mainNav > li {
     padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px;
+    float: left;  
     height: 100%;
-    text-align: center;
-    font-size: 1vw;
+    border-right: gray 1px solid;
 }
+
+    nav > .mainNav > li:first-child {
+        margin-left: 10px;
+    }
+
+    nav > .mainNav > li:last-child {
+        border: none;
+    }
 
 .navOption {
     list-style-type: none;
     text-align: center;
-    margin: 25px;
+    margin:0;
+    padding:0;
     position: relative;
 }
 
@@ -132,19 +150,40 @@ article {
 
     .resultSection > h1 {
         color: burlywood;
+        margin: 0;
+        padding-top:5px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid black;
         text-align: center;
+        font-family: 'Josefin Sans', sans-serif;
     }
+
+        .resultSection >h1> .onlycity{
+            color:#afd275;
+            text-decoration:underline;
+        }
 
 .default {
     min-height: 200px;
     width: 100%;
     background: rgba(128, 128, 128, 0.3);
+    font-size: 18px;
+}
+
+.default>h3{
+    padding-left:10px;
+    color:#fbeec1;   
 }
 
     .default:nth-child(2n) {
         background: rgba(208, 171, 171, 0.3);
     }
-
+.linesun {
+    padding-top:20px;
+    width: 300px;
+    display: flex;
+    margin: auto;
+}
 
 .line {
     width: 250px;
@@ -154,8 +193,8 @@ article {
 
 /*wykres*/
 .half-circle {
-    width: 200px;
-    height: 100px; /* as the half of the width */
+    width: 300px;
+    height: 80px;
     background-color: gold;
     border-top-left-radius: 110px; /* 100px of height + 10px of border */
     border-top-right-radius: 110px; /* 100px of height + 10px of border */
@@ -163,9 +202,18 @@ article {
     border-bottom: 0;
 }
 
-.line > .linecenter{
-position:relative;
-transform:translateY(25%);
+.line > .linecenter, .linesun > .linecenter {
+    position: relative;
+    transform: translateY(25%);
+}
+
+.line>.linecenter {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    min-width: 1px;
 }
 .righttext {
     padding-left: 20px;

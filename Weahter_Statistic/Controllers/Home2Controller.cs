@@ -22,7 +22,7 @@ namespace Weather_Statistic.Controllers
         }
 
         [HttpGet]
-        public IActionResult Town(string town, int days = 2)
+        public IActionResult Town(string town, int days = 1)
         {
             ViewBag.flag = true;
             ViewBag.operation = "Town";
@@ -48,7 +48,7 @@ namespace Weather_Statistic.Controllers
             return View("SearcherTwo", models);
         }
 
-        public IActionResult ManyDaysCity(int days = 2)
+        public IActionResult ManyDaysCity(int days = 3)
         {
             ViewBag.flag = false;
             ViewBag.days = days;
