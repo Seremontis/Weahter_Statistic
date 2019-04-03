@@ -1,9 +1,10 @@
-﻿var menuclick = document.querySelector(".menu");
+var menuclick = document.querySelector(".menu");
 var menu = document.querySelector("nav");
 var bgmenu = document.querySelector(".bgmenu");
+var mybutton = document.querySelector(".mybutton");
 
 menuclick.addEventListener("click", showMenu);
-
+mybutton.addEventListener("click", showMenu);
 
 window.onclick = function (event) {
     if (event.target == bgmenu) {
@@ -43,3 +44,40 @@ $(document).ready(function () {
             $(this).find('ul').slideUp();
         });
 });
+
+$.ajax({
+    url: "../JSON/goldthink.json",
+    dataType: "json",
+    success: (function (data) {
+        var short = data.goldThink;
+        var array = [];
+        for (var i = 0; i < 3; i++) {
+            var temp = getRandomInt(0, short.length - 1);
+            var flag = false;
+            for (var y = 0; y < array.length; y++) {
+                if (temp == array[y]) {
+                    flag = true;
+                }
+            }
+            if (flag != true) {
+                array.push(temp);
+            }
+            else {
+                i = i - 1;
+            }
+        }
+        console.log(array);
+        $('#goldthink1').append(short[array[0]].think);
+        $('#goldthink2').append(short[array[1]].think);
+        $('#goldthink3').append(short[array[2]].think);
+        $('#author1').append(short[array[0]].author);
+        $('#author2').append(short[array[1]].author);
+        $('#author3').append(short[array[2]].author);
+    })
+});
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}

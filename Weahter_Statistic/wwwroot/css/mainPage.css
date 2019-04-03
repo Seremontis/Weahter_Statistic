@@ -44,7 +44,7 @@ body {
     
     .boxLogo > .logo{
         background:url('../picture/logo.jpg');
-        background-size:5vw;
+        background-size:cover;
         height:60px;
         width:60px;
         border:2px solid black;

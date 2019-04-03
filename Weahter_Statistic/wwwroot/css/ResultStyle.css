@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 html, body, .myContainer {
-    height: auto;
+    height: 100%;
     width: 100%;
     margin: 0;
 }
@@ -84,7 +84,7 @@ nav > .mainNav > li {
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 13px;
+    font-size: 14px;
     float: left;  
     height: 100%;
     border-right: gray 1px solid;
@@ -101,24 +101,40 @@ nav > .mainNav > li {
 .navOption {
     list-style-type: none;
     text-align: center;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     position: relative;
+}
+    .navOption:hover{
+    color:#e66a0d;
 }
 
     .navOption > li {
-        background: blue;
+        background: rgba(5, 5, 5, 0.65);
+        font-size:16px;
+        color:#3ce402;
         display: none;
         z-index: 9999;
+        transition:height 2s ease;
+        height:0px;
     }
-
+ 
     .navOption:hover > li {
         display: block;
         z-index: 9999;
+        padding-bottom: 5px;
+        height: auto;
     }
 
     .navOption > li:first-child {
-        padding-top: 30px;
+        padding-top: 10px;
+        border-top: 1px solid #e66a0d;
+        
+    }
+
+    .navOption:hover > li:hover {
+        background: rgba(30, 29, 29, 0.80);
+        color:#b3f806;
     }
 
 .content {
