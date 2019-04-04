@@ -8,7 +8,13 @@ namespace Weather_Statistic.Models
 {
     public class LocationName
     {
-       readonly Geocoder service = new Geocoder("03029b67e6bc4cd6a6c9f9157702df80");
+        readonly Geocoder service;
+
+        public LocationName()
+        {
+            KeyApi key = new KeyApi();
+            service = new Geocoder(key.LoadLocationApi());
+        }
 
         public (double,double,string) GetPoint(string name)
         {

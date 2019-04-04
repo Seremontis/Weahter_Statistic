@@ -9,7 +9,15 @@ namespace Weather_Statistic.Models
 {
     public class WeatherConnect
     {
-        readonly DarkSkyService client = new DarkSkyService("63713b898acfdab954a9dd0ecea69e3c");
+        readonly DarkSkyService client;
+
+
+        public WeatherConnect()
+        {
+            KeyApi key = new KeyApi();
+            client = new DarkSkyService(key.LoadWeatherApi());
+        }
+
 
         async public Task<OneInfoModel> ResultOneSearch(double lati,double longti,DateTime dateTime)
         {

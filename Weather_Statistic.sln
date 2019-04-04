@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weahter_Statistic", "Weahter_Statistic\Weather_Statistic.csproj", "{DC9CACE1-6BE2-4D8B-AC6C-D1ABAB5C6643}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather_Statistic", "Weahter_Statistic\Weather_Statistic.csproj", "{DC9CACE1-6BE2-4D8B-AC6C-D1ABAB5C6643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherTest", "WeatherTest\WeatherTest.csproj", "{38AEF653-716C-47D1-BC7E-3F5151FDBACB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DC9CACE1-6BE2-4D8B-AC6C-D1ABAB5C6643}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9CACE1-6BE2-4D8B-AC6C-D1ABAB5C6643}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9CACE1-6BE2-4D8B-AC6C-D1ABAB5C6643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38AEF653-716C-47D1-BC7E-3F5151FDBACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38AEF653-716C-47D1-BC7E-3F5151FDBACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38AEF653-716C-47D1-BC7E-3F5151FDBACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38AEF653-716C-47D1-BC7E-3F5151FDBACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
