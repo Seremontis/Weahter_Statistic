@@ -36,190 +36,206 @@
 
                 <div class="">
                     <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                int temp = i + 1;
-                                <th class="col-1 bg-secondary">Dzień @temp</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Sunrise</td>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Sunset</td>
-                            }
-                        </tr>
-                    </table>
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Sunrise</td>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Sunset</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="default">
                 <h3>Ciśnienie</h3>
                 <div class="">
                     <div id="pressure" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Pressure hPa</td>
-                            }
-                        </tr>
-                    </table>
-                    <br />
-                </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Pressure hPa</td>
+                                }
+                            </tr>
+                        </table>
+                        </div>
+                        <br />
+                    </div>
             </div>
             <div class="default">
                 <h3>Wilgotność</h3>
                 <div class="">
                     <div id="humidity" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                            <td class="col-1">@item.Humadity%</td>
-                            }
-                        </tr>
-                    </table>
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Humadity%</td>
+                                }
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
             <div class="default">
                 <h3>Zachmurzenie</h3>
                 <div class="">
                     <div id="cloudy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Cloudy%</td>
-                            }
-                        </tr>
-                    </table>
-                </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Cloudy%</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
             </div>
             <div class="default ">
                 <h3>Temperatura minimalna i maksymalna</h3>
                 <div class="">
                     <div id="temperatures" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.MaxTemp&degC</td>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                            <td class="col-1">@item.MinTemp&degC</td>
-                            }
-                        </tr>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.MaxTemp&degC</td>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.MinTemp&degC</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
+                    </div>
                 </div>
-            </div>
             <div class="default">
                 <h3>Opady</h3>
                 <div class="">
                     <div id="rainy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Rainfall @item.TypeWeat</td>
-                            }
-                        </tr>
-                    </table>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Rainfall @item.TypeWeat</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="default">
                 <h3>Prędkość i kierunek wiatru</h3>
                 <div class="">
                     <div id="windchart" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Windspeed km/h</td>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Direct</td>
-                            }
-                        </tr>
-                    </table>
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Windspeed km/h</td>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Direct</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="default">
                 <h3>Widoczność</h3>
                 <div class="">
                     <div id="visible" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-
-                    <table class="table table-bordered table-dark">
-                        <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
-                            {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
-                            }
-                        </tr>
-                        <tr class="d-flex">
-                            @foreach (var item in Model)
-                            {
-                                <td class="col-1">@item.Visible @item.TypeLeng km</td>
-                            }
-                        </tr>
-                    </table>
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <tr class="d-flex">
+                                @for (int i = 0; i < ViewBag.days; i++)
+                                {
+                                    int temp = i + 1;
+                                    <th class="col-sm bg-secondary">Dzień @temp</th>
+                                }
+                            </tr>
+                            <tr class="d-flex">
+                                @foreach (var item in Model)
+                                {
+                                    <td class="col-sm">@item.Visible @item.TypeLeng km</td>
+                                }
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
         </section>
     }
 </article>

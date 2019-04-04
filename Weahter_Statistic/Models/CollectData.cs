@@ -21,7 +21,7 @@ namespace Weather_Statistic
         {
             var geo = DownLocation(town1, town2);
             DateTime time = DateTime.Now;
-            for (int i = 0; i < days; i++)
+            for (int i = days-1; i >=0; i--)
             {
                 modelsResult.City1.Add(DownWeather(geo[0].Item1,geo[0].Item2,time.AddDays(-1-i)));
                 modelsResult.City2.Add(DownWeather(geo[1].Item1, geo[1].Item2, time.AddDays(-1- i)));
@@ -34,7 +34,7 @@ namespace Weather_Statistic
         {
             var geo = DownLocation(town);
             DateTime time = DateTime.Now;
-            for (int i = 0; i < days; i++)
+            for (int i = days-1; i >= 0; i--)
             {
                 infoModel.Add(DownWeather(geo.Item1, geo.Item2, time.AddDays(-1 - i)));
             }
