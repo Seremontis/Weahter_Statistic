@@ -68,6 +68,12 @@ body {
     text-decoration: underline;
     color: #4cff00;
 }
+.boxHeader > .iconweat{
+    margin:15px 0;
+}
+.boxHeader > .iconweat > i {
+    margin-right: 10px;
+}
 
 .boxHeader > .mybutton {
     margin-top: 20px;
@@ -229,12 +235,15 @@ nav {
         position: absolute;
         right: 20px;
         -webkit-transition: -webkit-transform 0.5s ease;
+        transition: -webkit-transform 0.5s ease;
         transition: transform 0.5s ease;
+        transition: transform 0.5s ease, -webkit-transform 0.5s ease;
     }
 
         .detailmenu:hover > p:after {
             display: inline-block;
-            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
         }
 
         .detailmenu > ul {

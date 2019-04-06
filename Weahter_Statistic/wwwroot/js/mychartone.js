@@ -59,7 +59,7 @@ function FillArray() {
                 results.push({
                     y: arrayInfo[i].rainfall,
                     marker: {
-                        symbol: 'circle'
+                        symbol: 'square'
                     }
                 });
             }
@@ -78,7 +78,6 @@ function SetTime(array) {
 
 var subtitleTxt = 'Dane od ' + arrayDate[0] + ' do ' + arrayDate[arrayDate.length - 1];
 var city = arrayInfo[0].place;
-
 
 $(document).ready(function () {
 

@@ -11,21 +11,17 @@ namespace Weather_Statistic.Models
     {
         readonly DarkSkyService client;
 
-
         public WeatherConnect()
         {
             KeyApi key = new KeyApi();
             client = new DarkSkyService(key.LoadWeatherApi());
         }
 
-
         async public Task<OneInfoModel> ResultOneSearch(double lati,double longti,DateTime dateTime)
         {
             var exclusionList = new List<Exclude> { Exclude.Currently,Exclude.Hourly };
-            //DateTime yesterday = DateTime.Now.AddDays(-1);
             Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
-
             OneInfoModel oneInfo = new OneInfoModel
             {
                 Day = cut.Time.ToUnixTime(),
@@ -46,8 +42,7 @@ namespace Weather_Statistic.Models
                 SunriseTime = ListTime(cut.SunriseTime.TimeOfDay),
                 SunsetTime = ListTime(cut.SunsetTime.TimeOfDay)
             };      
-            return oneInfo;        
-            
+            return oneInfo;                 
         }
 
         private List<int> ListTime(TimeSpan day)
@@ -89,7 +84,6 @@ namespace Weather_Statistic.Models
                     direction = Direction.NW;
                     break;
             }
-
             return direction;
         }
     }

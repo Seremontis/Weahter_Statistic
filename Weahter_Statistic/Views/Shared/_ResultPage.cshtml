@@ -9,12 +9,14 @@
 
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/ResultStyle.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/highcharts-more.js"></script>
         <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-        
+
     </environment>
 </head>
 <body>
@@ -29,22 +31,20 @@
                             <li>
                                 <ul class="navOption">
                                     Dane przeszłe dla jednego miasta
-                                    <li>wczoraj</li>
-                                    <li>ostatnie 3 dni</li>
-                                    <li>ostatnie 7 dni</li>
-                                    <li>ostatnie 14 dni</li>
-                                    <li>ostatnie 21 dni</li>
-                                    <li>ostatnie 30 dni</li>
-                                    <li>niestandardowe</li>
+                                    <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="3">3 dni</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="7">7 dni</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="14">14 dni</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCity" asp-route-days="31">31 dni</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <ul class="navOption">
                                     Dane przeszłe dla dwóch miast
-                                    <li>wczoraj</li>
-                                    <li>ostatnie 3 dni</li>
-                                    <li>ostatnie 7 dni</li>
-                                    <li>ostatnie 14 dni</li>
+                                    <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="3">3 dni</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="7">7 dni</a></li>
+                                    <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="14">14 dni</a></li>
                                 </ul>
                             </li>
                             <li>
