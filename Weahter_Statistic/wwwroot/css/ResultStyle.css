@@ -1,16 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 html, body, .myContainer {
-    min-height:100vh;
+    min-height: 100vh;
     width: 100%;
     margin: 0;
 }
 
 .myContainer {
+    min-width: 900px;
     display: grid;
     grid-template-rows: 300px auto 40px;
     grid-gap: 15px;
-    height:100%;
+    height: 100%;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#004799+1,207cca+70,5eaae0+99 */
     background: rgb(0,71,153); /* Old browsers */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, rgba(0,71,153,1)),color-stop(70%, rgba(32,124,202,1)),color-stop(99%, rgba(94,170,224,1)));

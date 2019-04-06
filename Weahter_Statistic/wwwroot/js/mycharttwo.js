@@ -14,7 +14,7 @@ var visibleStart = StartPoint();
 var visibleEnd = EndPoint();
 
 
-//functions to ready data to charts
+//functions to ready data to charts (visibility)
 function StartPoint () {
     num1=Math.min.apply(null, arrayVis1);
     num2 = Math.min.apply(null, arrayVis2);
@@ -46,6 +46,8 @@ function DeclareArray() {
     arrayTemp2 = new Array(arrayInfo1.length);
     arrayRain1 = [];
     arrayRain2 = [];
+    windChart1 = [],
+    windChart2 = [],
     arrayWind1 = new Array(arrayInfo1.length);
     arrayWind2 = new Array(arrayInfo1.length);
     arrayVis1 = new Array(arrayInfo1.length);
@@ -87,12 +89,20 @@ function FillArray() {
         arrayVis1[i] = arrayInfo1[i].visible;
         arrayVis2[i] = arrayInfo2[i].visible;
 
-        arrayRain1.push(AddWind(arrayInfo1[i]));
-        arrayRain2.push(AddWind(arrayInfo2[i]));
+        arrayRain1.push(AddRain(arrayInfo1[i]));
+        arrayRain2.push(AddRain(arrayInfo2[i]));
+
+        windChart1.push(AddWind(arrayInfo1[i]));
+        windChart2.push(AddWind(arrayInfo2[i]));
     }
 }
 
-function AddWind(x) {
+
+//https://www.iconfinder.com/icons/367519
+//https://www.iconfinder.com/icons/367530
+//https://www.iconfinder.com/icons/809982
+//https://www.base64-image.de/
+function AddRain(x) {
     if (x.typeWeat == "snow") {
         return ({
             y: x.rainfall,
@@ -109,6 +119,14 @@ function AddWind(x) {
             }
         });
     }
+    else if (x.typeWeat == "rain") {
+        return ({
+        y: x.rainfall,
+            marker: {
+            symbol: 'url(data:image/png;base64,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)'
+            }
+        });
+    }
     else {
         return({
             y: x.rainfall,
@@ -116,6 +134,76 @@ function AddWind(x) {
                 symbol: 'circle'
             }
         });
+    }
+}
+
+
+function AddWind(x) {
+    switch (x.direct) {
+        case 1:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/N.png)'
+                }
+            });
+        case 2:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/NE.png)'
+                }
+            });
+        case 3:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/E.png)'
+                }
+            });
+        case 4:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/SE.png)'
+                }
+            });
+        case 5:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/S.png)'
+                }
+            });
+        case 6:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(~/picture/direct/SW.png)'
+                }
+            });
+        case 7:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/W.png)'
+                }
+            });
+        case 8:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'url(../picture/direct/NW.png)'
+                }
+            });
+
+        default:
+            return ({
+                y: x.windspeed,
+                marker: {
+                    symbol: 'circle'
+                }
+            });
     }
 }
 
@@ -426,7 +514,7 @@ $(document).ready(function () {
             text: 'Ilość opadów'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: ''
         },
         xAxis: {
             categories: arrayDate
@@ -459,7 +547,7 @@ $(document).ready(function () {
             },
         },
             {
-                name: city1,
+                name: city2,
                 data: arrayRain2,
                 color: color2,
                 marker: {
@@ -469,64 +557,56 @@ $(document).ready(function () {
     });
 
     //ManyDaysCompares wind
-    /*Highcharts.chart('windchart', {
+    Highcharts.chart('windchart', {
         chart: {
-            type: 'windbarb'
-
+            type: 'spline'
         },
         title: {
-            text: 'Prekość wiatru'
+            text: 'Prędkość i kierunek wiatru'
         },
         subtitle: {
-            text: subtitleTxt
+            text: ''
         },
         xAxis: {
-            type: 'datetime',
-            offset: 40,
             categories: arrayDate
+
         },
         yAxis: {
             title: {
-                text: 'Predkość wiatru [km/h]'
+                text: 'Prędkość'
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true
+        },
+        plotOptions: {
+            spline: {
+                marker: {
+                    radius: 4,
+                    lineColor: '#666666',
+                    lineWidth: 1
+                }
             }
         },
         series: [{
-            data: arrayWind1,
-            name: 'Wiatr',
-            color: Highcharts.getOptions().colors[1],
-            showInLegend: false,
-                tooltip: {
-                valueSuffix: ' m/s'
-                }
+            name: city1,
+            data: windChart1,
+            color: color1,
+            marker: {
+                symbol: 'diamond'
             },
-            {
-            type: 'area',
-            keys: ['y', 'rotation'], // rotation is not used here
-            data: arrayWind1,
-            name: 'Prędkość wiatru',
-                tooltip: {
-                valueSuffix: ' m/s'
-                }
+        },
+        {
+            name: city2,
+            data: windChart2,
+            color: color2,
+            marker: {
+                symbol: 'triangle'
             },
-            {
-                data: arrayWind2,
-                name: 'Wiatr',
-                color: Highcharts.getOptions().colors[1],
-                showInLegend: false,
-                tooltip: {
-                    valueSuffix: ' m/s'
-                }
-            },
-            {
-                type: 'area',
-                keys: ['y', 'rotation'], // rotation is not used here
-                data: arrayWind2,
-                name: 'Prędkość wiatru',
-                tooltip: {
-                    valueSuffix: ' m/s'
-                }
-            }]
-    });*/
+        }]
+    });
+   
 
     //ManyDaysCompares visible
     Highcharts.chart('visible', {

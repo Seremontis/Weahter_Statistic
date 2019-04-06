@@ -44,34 +44,43 @@
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm bg-secondary">Miasto</th>
+                            <th class="col-sm bg-secondary">Typ</th>
+                            @for (int i =1; i <= ViewBag.days; i++)
                             {
-                                int temp = i + 1;
-                                <th class="col-1 bg-secondary">Dzień @temp</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm bg-secondary" rowspan="2">@Model.City1[0].Place</th>
+                            <th class="col-sm bg-secondary">Wschód</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Sunrise</td>
+                                <td class="col-sm">@item.Sunrise</td>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm bg-secondary" />
+                            <th class="col-sm bg-secondary">Zachód</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Sunset</td>
+                                <td class="col-sm">@item.Sunset</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th colspan="2" class="col-sm bg-secondary" >@Model.City2[0].Place</th>
+                            <th class="col-sm bg-secondary">Wschód</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Sunset</td>
+                                <td class="col-sm">@item.Sunrise</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm bg-secondary"></th>
+                            <th class="col-sm bg-secondary">Zachód</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Sunset</td>
+                                <td class="col-sm">@item.Sunset</td>
                             }
                         </tr>
                     </table>
@@ -84,21 +93,24 @@
                     <div id="pressure" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm bg-secondary"/>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm bg-secondary">@Model.City1[0].Place</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Pressure hPa</td>
+                                <td class="col-sm">@item.Pressure hPa</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm bg-secondary">@Model.City2[0].Place</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Pressure hPa</td>
+                                <td class="col-sm">@item.Pressure hPa</td>
                             }
                         </tr>
                     </table>
@@ -112,21 +124,24 @@
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm bg-secondary"/>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm bg-secondary">@Model.City1[0].Place</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Humadity%</td>
+                                <td class="col-sm">@item.Humadity%</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm bg-secondary">@Model.City2[0].Place</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Humadity%</td>
+                                <td class="col-sm">@item.Humadity%</td>
                             }
                         </tr>
                     </table>
@@ -139,21 +154,24 @@
                     <div id="cloudy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm bg-secondary"/>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm bg-secondary">@Model.City1[0].Place</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Cloudy%</td>
+                                <td class="col-sm">@item.Cloudy%</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm bg-secondary">@Model.City2[0].Place</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Cloudy%</td>
+                                <td class="col-sm">@item.Cloudy%</td>
                             }
                         </tr>
                     </table>
@@ -166,33 +184,44 @@
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm-2 bg-secondary">Miasto</th>
+                            <th class="col-sm-2 bg-secondary">Temperatura</th>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2 bg-secondary">@Model.City1[0].Place</th>
+                            <th class="col-sm-2 bg-secondary">maksymalna</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.MaxTemp&degC</td>
+                                <td class="col-sm">@item.MaxTemp&degC</td>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2 bg-secondary"/>
+                            <th class="col-sm-2 bg-secondary">minimalna</th>
                             @foreach (var item in Model.City1)
                             {
-                            <td class="col-1">@item.MinTemp&degC</td>
+                                <td class="col-sm">@item.MinTemp&degC</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2 bg-secondary">@Model.City2[0].Place</th>
+                            <th class="col-sm-2 bg-secondary">maksymalna</th>
                             @foreach (var item in Model.City2)
                             {
-                            <td class="col-1">@item.MaxTemp&degC</td>
+                                <td class="col-sm">@item.MaxTemp&degC</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2 bg-secondary"/>
+                            <th class="col-sm-2 bg-secondary">minimalna</th>
                             @foreach (var item in Model.City2)
                             {
-                            <td class="col-1">@item.MinTemp&degC</td>
+                                <td class="col-sm">@item.MinTemp&degC</td>
                             }
                         </tr>
                     </table>
@@ -204,21 +233,58 @@
                     <div id="rainy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm-2 bg-secondary"/>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2 bg-secondary">@Model.City1[0].Place</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Rainfall @item.TypeWeat</td>
+                                string answer;
+                                if (item.TypeWeat == "rain")
+                                {
+                                    answer = "deszczu";
+                                }
+                                else if (item.TypeWeat == "snow")
+                                {
+                                    answer = "śniegu";
+                                }
+                                else if (item.TypeWeat == "sleet")
+                                {
+                                    answer = "śniegu z deszczem";
+                                }
+                                else
+                                {
+                                    answer = "";
+                                }
+                                <td class="col-sm">@item.Rainfall mm @answer</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2 bg-secondary">@Model.City2[0].Place</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Rainfall @item.TypeWeat</td>
+                                string answer;
+                                if (item.TypeWeat == "rain")
+                                {
+                                    answer = "deszczu";
+                                }
+                                else if (item.TypeWeat == "snow")
+                                {
+                                    answer = "śniegu";
+                                }
+                                else if (item.TypeWeat == "sleet")
+                                {
+                                    answer = "śniegu z deszczem";
+                                }
+                                else
+                                {
+                                    answer = "";
+                                }
+                                <td class="col-sm">@item.Rainfall mm @answer</td>
                             }
                         </tr>
                     </table>
@@ -228,35 +294,45 @@
                 <h3>Prędkość i kierunek wiatru</h3>
                 <div class="">
                     <div id="windchart" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
+                    <div style="color:black;font-size:10px;">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm-4 bg-secondary" />
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2">@Model.City1[0].Place</th>
+                            <th class="col-sm-2">Prędkość wiatru</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Windspeed km/h</td>
+                                <td class="col-sm">@item.Windspeed km/h</td>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2" />
+                            <th class="col-sm-2">Kierunek wiatru</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Direct</td>
+                                <td class="col-sm">@item.Direct</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2">@Model.City2[0].Place</th>
+                            <th class="col-sm-2">Prędkość wiatru</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Windspeed km/h</td>
+                                <td class="col-sm">@item.Windspeed km/h</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2" />
+                            <th class="col-sm-2">Prędkość wiatru</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Direct</td>
+                                <td class="col-sm">@item.Direct</td>
                             }
                         </tr>
                     </table>
@@ -270,21 +346,24 @@
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            @for (int i = 0; i < ViewBag.days; i++)
+                            <th class="col-sm-2 bg-secondary"/>
+                            @for (int i = 1; i <= ViewBag.days; i++)
                             {
-                                <th class="col-1 bg-secondary">Dzień @i</th>
+                                <th class="col-sm bg-secondary">Dzień @i</th>
                             }
                         </tr>
                         <tr class="d-flex town1">
+                            <th class="col-sm-2 bg-secondary">@Model.City1[0].Place</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-1">@item.Visible @item.TypeLeng</td>
+                                <td class="col-sm">@item.Visible @item.TypeLeng</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
+                            <th class="col-sm-2 bg-secondary">@Model.City2[0].Place</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-1">@item.Visible @item.TypeLeng</td>
+                                <td class="col-sm">@item.Visible @item.TypeLeng</td>
                             }
                         </tr>
                     </table>
