@@ -28,8 +28,8 @@ namespace Weather_Statistic.Models
                 Pressure = cut.Pressure,
                 Humadity = cut.Humidity * 100,
                 Cloudy = (int)(cut.CloudCover * 100),
-                Sunrise = cut.SunriseTime.DateTime,
-                Sunset = cut.SunsetTime.DateTime,
+                Sunrise = cut.SunriseTime.DateTime.ToLocalTime(),
+                Sunset = cut.SunsetTime.DateTime.ToLocalTime(),
                 Rainfall = cut.PrecipitationIntensity,
                 TypeWeat = cut.PrecipitationType,
                 MaxTemp = cut.HighTemperature,
@@ -43,6 +43,33 @@ namespace Weather_Statistic.Models
                 SunsetTime = ListTime(cut.SunsetTime.TimeOfDay)
             };      
             return oneInfo;                 
+        }
+
+        async public Task<List<OneInfoModel>> FutureResult(double lati, double longti, DateTime dateTime)
+        {
+            var exclusionList = new List<Exclude> { Exclude.Currently};
+            Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
+            var cut = result.Hourly.Hours;
+            List<OneInfoModel> list = new List<OneInfoModel>();
+            foreach (var item in cut)
+            {
+                OneInfoModel oneInfo = new OneInfoModel
+                {
+                    Day = item.Time.ToUnixTime(),
+                    Pressure = item.Pressure,
+                    Sunrise = result.Daily.Days[0].SunriseTime.DateTime,
+                    Sunset = result.Daily.Days[0].SunsetTime.DateTime,
+                    SunriseTime = ListTime(item.Time.TimeOfDay),
+                    Rainfall = item.PrecipitationIntensity,
+                    TypeWeat = item.PrecipitationType,
+                    MaxTemp = item.Temperature,
+                    Windspeed = (float)(Math.Round(item.WindSpeed * 1.609344, 2)),
+                    Direct = ConvertDirect(item.WindBearing),
+                    DirectNumber = item.WindBearing,
+            };
+                list.Add(oneInfo);
+            }
+            return list;
         }
 
         private List<int> ListTime(TimeSpan day)

@@ -45,6 +45,15 @@ namespace Weather_Statistic
             return infoModel;
         }
 
+        public List<OneInfoModel> CreateListFuture(string town)
+        {
+            var geo = DownLocation(town);
+            DateTime time = DateTime.Now;
+            List<OneInfoModel> infoModel=DownWeatherFut(geo.Item1, geo.Item2, time.AddDays(1));
+            infoModel[0].Place = town;
+            return infoModel;
+        }
+
         private (double, double, string)[] DownLocation(string town1, string town2)
         {
             var name = new LocationName();
@@ -65,6 +74,12 @@ namespace Weather_Statistic
             return info;
         }
 
+        private List<OneInfoModel> DownWeatherFut(double lati, double lang, DateTime date)
+        {
+            var weather = new WeatherConnect();
+            List<OneInfoModel> info = weather.FutureResult(lati, lang, date).Result;
+            return info;
+        }
 
     }
 }

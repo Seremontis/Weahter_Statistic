@@ -22,27 +22,25 @@ namespace Weather_Statistic.Controllers
 
         public IActionResult FutureDay()
         {
-            ViewBag.flag = false;
+            ViewBag.flag = false;       
             return View();
         }
 
-        public IActionResult FutureDayResult()
+        public IActionResult FutureDayResult(string town)
         {
-            ViewBag.flag = true;
-            return View();
+            if (town == null)
+            {
+                return RedirectToAction("FutureDay");
+            }
+            else
+            {
+                ViewBag.flag = true;
+                var models = collect.CreateListFuture(town);
+                return View("FutureDay", models);
+            }
+       
         }
 
-        public IActionResult FutureManyDays()
-        {
-            ViewBag.flag = false;
-            return View();
-        }
-
-        public IActionResult FutureManyDaysResult()
-        {
-            ViewBag.flag = true;
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
