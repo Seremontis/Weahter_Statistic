@@ -33,6 +33,8 @@ function EndPoint() {
         return num1
 }
 
+
+//functions prepare data with C# models to charts
 function DeclareArray() {
     arrayRiseSet1 = new Array(arrayInfo1.length);
     arrayRiseSet2 = new Array(arrayInfo1.length);
@@ -97,7 +99,6 @@ function FillArray() {
     }
 }
 
-
 //https://www.iconfinder.com/icons/367519
 //https://www.iconfinder.com/icons/367530
 //https://www.iconfinder.com/icons/809982
@@ -135,7 +136,6 @@ function AddRain(x) {
         });
     }
 }
-
 
 function AddWind(x) {
     switch (x.direct) {

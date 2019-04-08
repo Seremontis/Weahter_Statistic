@@ -1,8 +1,11 @@
-﻿var arrayRiseSet, arrayPressure, arrayHum, arrayClo, arrayTempRange, arrayTempAvg, arrayRain, arrayVis, arrayWind,results;
+﻿//lists arrays
+var arrayRiseSet, arrayPressure, arrayHum, arrayClo, arrayTempRange, arrayTempAvg, arrayRain, arrayVis, arrayWind, results;
 
+//grouping main function
 DeclareArray();
 FillArray();
 
+//load data with C# models to ready in charts
 function DeclareArray() {
     arrayRiseSet = new Array(arrayInfo.length);
     arrayPressure = new Array(arrayInfo.length);
@@ -15,6 +18,7 @@ function DeclareArray() {
     arrayWind = new Array(arrayInfo.length);
     results = [];
 }
+
 function FillArray() {
     if (arrayInfo != null) {
         for (let i = 0; i < arrayInfo.length; i++) {
@@ -76,9 +80,11 @@ function SetTime(array) {
     return date;
 }
 
+//ready text to title on charts
 var subtitleTxt = 'Dane od ' + arrayDate[0] + ' do ' + arrayDate[arrayDate.length - 1];
 var city = arrayInfo[0].place;
 
+// run charts
 $(document).ready(function () {
 
     // ManyDaysCity sun

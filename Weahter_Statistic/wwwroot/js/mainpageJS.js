@@ -1,3 +1,4 @@
+// Connect element to interaction
 var menuclick = document.querySelector(".menu");
 var menu = document.querySelector("nav");
 var bgmenu = document.querySelector(".bgmenu");
@@ -6,6 +7,7 @@ var mybutton = document.querySelector(".mybutton");
 menuclick.addEventListener("click", showMenu);
 mybutton.addEventListener("click", showMenu);
 
+// Menu ready to correct visible
 window.onclick = function (event) {
     if (event.target == bgmenu) {
         menu.style.right = "-400px";
@@ -45,6 +47,8 @@ $(document).ready(function () {
         });
 });
 
+
+//load elements of json array and function random on bottom code
 $.ajax({
     url: "../JSON/goldthink.json",
     dataType: "json",
@@ -66,7 +70,6 @@ $.ajax({
                 i = i - 1;
             }
         }
-        console.log(array);
         $('#goldthink1').append(short[array[0]].think);
         $('#goldthink2').append(short[array[1]].think);
         $('#goldthink3').append(short[array[2]].think);

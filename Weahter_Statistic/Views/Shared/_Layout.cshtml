@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Karol Ścigała" />
+    <meta name="copyright" content="Karol Ścigała" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="historia pogody,informacje o pogodzie,porównania pogody" />
+    <meta name="description" content="Informacje na temat pogody, które już zaszły, a także prognoza na jutro" />
     <title>@ViewData["Title"] - Weather_Statistic</title>
 
     <environment include="Development">
@@ -10,8 +15,8 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/mainPage.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    </environment>   
-   
+    </environment>
+
 </head>
 <body>
     <div class="myContainer">
@@ -24,7 +29,17 @@
                 </div>
                 <div class="boxHeader">
                     <header>Statystyki pogodowe</header>
-                    <div class="iconweat"><i class="fas fa-sun fa-2x"></i><i class="fas fa-cloud-sun fa-2x"></i><i class="fas fa-cloud fa-2x"></i> <i class="fas fa-cloud-sun-rain fa-2x"></i><i class="fas fa-cloud-rain fa-2x"></i><i class="fas fa-cloud-meatball fa-2x"></i><i class="fas fa-snowflake fa-2x"></i></div>
+                    <!--Icon weather from Font Awesome-->
+                    <div class="iconweat">
+                    <i class="fas fa-sun fa-2x"></i>
+                    <i class="fas fa-cloud-sun fa-2x"></i>
+                    <i class="fas fa-cloud fa-2x"></i> 
+                    <i class="fas fa-cloud-sun-rain fa-2x"></i>
+                    <i class="fas fa-cloud-rain fa-2x"></i>
+                    <i class="fas fa-cloud-meatball fa-2x"></i>
+                    <i class="fas fa-snowflake fa-2x"></i></div>
+
+                    <!--Menu show after click below button-->
                     <button class="btn btn-outline-dark btn-lg mybutton">Więcej</button>
                 </div>
             </div>
@@ -48,6 +63,8 @@
         </footer>
     </div>
 
+
+    <!-- Menu visible and hidden right-->
     <div class="menu">
         <p>Menu</p>
     </div>
@@ -72,7 +89,7 @@
                 <div class="detailmenu">
                     <p>Porównywarka miast</p>
                     <ul class="undermenu">
-                        <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                        <li><a asp-controller="Home" asp-action="SearcherTwo" asp-route-days="1">Wczoraj</a></li>
                         <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="3">3 dni</a></li>
                         <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="7">7 dni</a></li>
                         <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="14">14 dni</a></li>
@@ -84,6 +101,8 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Nothing rendering-->
     @RenderBody()
     <script type="text/javascript" src="~/js/mainpageJS.js"></script>
 </body>

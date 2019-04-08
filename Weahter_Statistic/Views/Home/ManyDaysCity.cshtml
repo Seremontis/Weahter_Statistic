@@ -86,9 +86,9 @@
                                 }
                             </tr>
                         </table>
-                        </div>
-                        <br />
                     </div>
+                    <br />
+                </div>
             </div>
             <div class="default">
                 <h3>Wilgotność</h3>
@@ -111,9 +111,9 @@
                                 }
                             </tr>
                         </table>
-                        </div>
                     </div>
                 </div>
+            </div>
             <div class="default">
                 <h3>Zachmurzenie</h3>
                 <div class="">
@@ -136,7 +136,7 @@
                             </tr>
                         </table>
                     </div>
-                    </div>
+                </div>
             </div>
             <div class="default ">
                 <h3>Temperatura minimalna i maksymalna</h3>
@@ -147,7 +147,7 @@
                             <tr class="d-flex">
                                 <th class="col-sm bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
-                                { 
+                                {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
@@ -167,13 +167,13 @@
                             </tr>
                         </table>
                     </div>
-                    </div>
                 </div>
+            </div>
             <div class="default">
                 <h3>Opady</h3>
                 <div class="">
                     <div id="rainy" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
-                    
+
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
@@ -192,7 +192,7 @@
                                     {
                                         answer = "deszczu";
                                     }
-                                    else if(item.TypeWeat == "snow")
+                                    else if (item.TypeWeat == "snow")
                                     {
                                         answer = "śniegu";
                                     }
@@ -263,9 +263,44 @@
                                 }
                             </tr>
                         </table>
-                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="summary">
+                <h3>Podsumowanie</h3>
+                <p>
+                    Maksymalna temperatura w ciągu dnia: <strong>@Model.Max(x => x.MaxTemp).</strong>
+
+                </p>
+                <p>
+                    Minimalna temperatura w ciągu dnia:<strong>@Model.Min(x => x.MinTemp)&degC</strong>
+                </p>
+                <p>
+                    Średnia maksymalna temperatura w ciągu dnia:<strong>@Model.Average(x => x.MinTemp)&degC</strong>
+                </p>
+                <p>
+                    Średnia minimalna temperatura w ciągu ostatnich dni:<strong>@Model.Average(x => x.MinTemp)&degC</strong>
+                </p>
+                <p>
+                    Maksymalne ciśnienie w ciągu ostatnich dni:<strong>@Model.Max(x => x.Pressure) hPa.</strong>
+                </p>
+                <p>
+                    Średnie ciśnienie w ciągu ostatnich dni:<strong>@Model.Average(x => x.Pressure) hPa.</strong>
+                </p>
+                <p>
+                    Najwyższe opady:<strong>@Model.Max(x => x.Rainfall) mm</strong>
+                </p>
+                <p>
+                    Średnie opady w ciągu ostatnich dni:<strong>@Model.Average(x => x.Rainfall) mm</strong>
+                </p>
+                <p>
+                    Najdalsza widoczność: <strong>@Model.Max(x => x.Visible) km.</strong>
+                </p>
+                <p>
+                    Średnia widoczność w ciągu ostatnich dni: <strong>@Model.Average(x => x.Visible) km.</strong>
+                </p>
+            </div>
         </section>
     }
 </article>

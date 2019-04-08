@@ -20,6 +20,7 @@ body {
 
 }
 
+/*Divide grid on rows*/
 .myRow {
     grid-row: 1;
     display: grid;

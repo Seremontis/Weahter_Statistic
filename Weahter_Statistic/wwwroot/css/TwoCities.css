@@ -1,13 +1,23 @@
-﻿.twoCities{
+﻿/*Elements for page where there are compares cities*/
+.twoCities{
     display:grid;
     grid-template-columns:50% 50%;
     text-align:center;
 }
+/*Separate two sun*/
+.divide {
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+/*sun before*/
 .hleft{
     grid-column:1;
     border-right:1px solid black;
 }
 
+/*sun after*/
 .hright {
     grid-column: 2;
     border-left: 1px solid black;
@@ -18,23 +28,22 @@ h1{
     padding-bottom:10px;
 }
 
-.divide {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    text-align: center;
-}
-
 .block{
     display:block;
 }
 
+
+/*Colors for cities*/
 .town1 {
-    color: #FF8C00;
+    color: #ea8606;
+    font-weight:bold;
 }
 
 .town2 {
     color: #9ACD32;
+    font-weight: bold;
 }
+
 
 .mybutton{
     margin:auto;

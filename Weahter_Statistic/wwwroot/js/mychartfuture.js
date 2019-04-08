@@ -1,6 +1,8 @@
-﻿declareArray();
+﻿//grouping operation
+declareArray();
 fillArray();
 
+//function prepare data from C# models
 function declareArray() {
     arrayTemp = [];
     arrayPressure = [];
@@ -58,9 +60,12 @@ function SetTime(array) {
     return date;
 }
 
+//data to chart
 var chartDate = arrayInfo[0].sunrise.toString();
 chartDate = chartDate.substring(0, 10);
 
+
+// run charts
 this.chart = new Highcharts.Chart(getChartOptions());
 function getChartOptions () {
 

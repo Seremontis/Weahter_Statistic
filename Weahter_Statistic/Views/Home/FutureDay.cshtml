@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-bordered table-dark">
+                        <table class="table table-bordered table-dark mytable">
                             <thead>
                                 <tr class="d-flex">
                                     <th class="col-sm bg-secondary">Godzina</th>
@@ -55,7 +55,7 @@
                             @{
                                 foreach (var item in Model)
                                 {
-                                     int temp = item.SunriseTime[0] + 2;
+                                    int temp = item.SunriseTime[0] + 2;
                                 <tr class="d-flex">
                                     <th class="col-sm bg-secondary">@temp:00</th>
                                     <td class="col-sm">@item.MaxTemp&deg C</td>
@@ -86,10 +86,16 @@
                         <h3>Podsumowanie dnia:</h3>
                         <p>Maksymalna temperatura w ciągu dnia: <strong>@Model.Max(x => x.MaxTemp)&degC</strong></p>
                         <p>Minimalna temperatura w ciągu dnia: <strong>@Model.Min(x => x.MaxTemp)&degC </strong></p>
-                        <p>Moment wschodu słońca: <strong>@Model[0].Sunrise.ToString("HH:mm") </strong></p>
-                        <p>Moment zachodu słońca: <strong>@Model[0].Sunset.ToString("HH:mm") </strong></p>
-                        <p>Maksymalna ciśnienie w ciągu dnia: <strong>@Model.Max(x => x.Pressure) hPa</strong></p>
-                        <p>Minimalna ciśnienie w ciągu dnia: <strong>@Model.Min(x => x.Pressure) hPa</strong></p>
+                        @{
+                            DateTime tempsun = Model[0].Sunrise.AddHours(2);
+                        }
+                        <p>Moment wschodu słońca: <strong>@tempsun.ToString("HH:mm") </strong></p>
+                        @{
+                            tempsun = Model[0].Sunset.AddHours(2);
+                        }
+                        <p>Moment zachodu słońca: <strong>@tempsun.ToString("HH:mm") </strong></p>
+                        <p>Maksymalne ciśnienie w ciągu dnia: <strong>@Model.Max(x => x.Pressure) hPa</strong></p>
+                        <p>Minimalne ciśnienie w ciągu dnia: <strong>@Model.Min(x => x.Pressure) hPa</strong></p>
                     </div>
                 </div>
             </div>
