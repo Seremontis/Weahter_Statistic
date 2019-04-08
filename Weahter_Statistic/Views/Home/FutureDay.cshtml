@@ -9,18 +9,18 @@
 
 </head>
 <article>
-
     <section class="title">
-        <form asp-controller="Home" asp-action="FutureDayResult" method="get">
-            <div class="input-group mb-3">
-                <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
-                <input type="hidden" name="days" value="1">
-                <div class="input-group-append">
-                    <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
-                </div>
+    <h3 class="headsection">Prognoza pogody na dzień jutrzejszy</h3>
+    <form asp-controller="Home" asp-action="FutureDayResult" method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
+            <input type="hidden" name="days" value="1">
+            <div class="input-group-append">
+                <button class="btn btn-dark" type="submit" id="button-addon2">Wyszukaj</button>
             </div>
-        </form>
-    </section>
+        </div>
+    </form>
+</section>
     @if (ViewBag.flag != true)
     {
         <section>
@@ -33,19 +33,68 @@
             <h1>Wyniki dla: @Model[0].Place</h1>
             <div class="default">
                 <h3>Godzinowa prognoza pogody na dzień @Model[0].Sunrise.ToString("dd/MM/yyyy")</h3>
+                <h8>(Godziny są zaprezentowane w stosunku do czasu środkowoeuropejskiego</h8>
                 <div class="">
-
-
-                    <div id="container" style="max-width: auto; min-width: 380px; height: 310px; margin: 0 auto">
+                    <div id="container" style="width: auto; min-width: 380px; height: 310px; margin: 0 auto">
                         <div style="margin-top: 100px; text-align: center" id="loading">
                             <i class="fa fa-spinner fa-spin"></i> Loading data from external source
                         </div>
                     </div>
 
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr class="d-flex">
+                                    <th class="col-sm bg-secondary">Godzina</th>
+                                    <th class="col-sm bg-secondary">Temperatura</th>
+                                    <th class="col-sm bg-secondary">Ciśnienie</th>
+                                    <th class="col-sm bg-secondary">Ilość opadów i typ</th>
+                                    <th class="col-sm bg-secondary">Prędkość i kieunek wiatru</th>
+                                </tr>
+                            </thead>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                     int temp = item.SunriseTime[0] + 2;
+                                <tr class="d-flex">
+                                    <th class="col-sm bg-secondary">@temp:00</th>
+                                    <td class="col-sm">@item.MaxTemp&deg C</td>
+                                    <td class="col-sm">@item.Pressure hPa</td>
+                                    <td class="col-sm">
+                                        @item.Rainfall mm
+                                        @if (item.TypeWeat == "rain")
+                                        {
+                                            <p>deszczu</p>
+                                        }
+                                        else if (item.TypeWeat == "snow")
+                                        {
+                                            <p>śniegu</p>
+                                        }
+                                        else if (item.TypeWeat == "sleet")
+                                        {
+                                            <p>deszczu ze śniegiem</p>
+                                        }
+                                    </td>
+                                    <td class="col-sm">@item.Windspeed km/h @item.Direct</td>
+                                </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+
+                    <div class="summary">
+                        <h3>Podsumowanie dnia:</h3>
+                        <p>Maksymalna temperatura w ciągu dnia: <strong>@Model.Max(x => x.MaxTemp)&degC</strong></p>
+                        <p>Minimalna temperatura w ciągu dnia: <strong>@Model.Min(x => x.MaxTemp)&degC </strong></p>
+                        <p>Moment wschodu słońca: <strong>@Model[0].Sunrise.ToString("HH:mm") </strong></p>
+                        <p>Moment zachodu słońca: <strong>@Model[0].Sunset.ToString("HH:mm") </strong></p>
+                        <p>Maksymalna ciśnienie w ciągu dnia: <strong>@Model.Max(x => x.Pressure) hPa</strong></p>
+                        <p>Minimalna ciśnienie w ciągu dnia: <strong>@Model.Min(x => x.Pressure) hPa</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
-    }
+}
 
 </article>
 

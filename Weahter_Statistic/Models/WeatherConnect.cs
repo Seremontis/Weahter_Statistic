@@ -19,7 +19,7 @@ namespace Weather_Statistic.Models
 
         async public Task<OneInfoModel> ResultOneSearch(double lati,double longti,DateTime dateTime)
         {
-            var exclusionList = new List<Exclude> { Exclude.Currently,Exclude.Hourly };
+            var exclusionList = new List<Exclude> { Exclude.Currently,Exclude.Hourly, };
             Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
             var cut = result.Daily.Days[0];
             OneInfoModel oneInfo = new OneInfoModel
@@ -28,8 +28,8 @@ namespace Weather_Statistic.Models
                 Pressure = cut.Pressure,
                 Humadity = cut.Humidity * 100,
                 Cloudy = (int)(cut.CloudCover * 100),
-                Sunrise = cut.SunriseTime.DateTime.ToLocalTime(),
-                Sunset = cut.SunsetTime.DateTime.ToLocalTime(),
+                Sunrise = cut.SunriseTime.DateTime.AddHours(2),
+                Sunset = cut.SunsetTime.DateTime.AddHours(2),
                 Rainfall = cut.PrecipitationIntensity,
                 TypeWeat = cut.PrecipitationType,
                 MaxTemp = cut.HighTemperature,

@@ -11,12 +11,13 @@
 <article>
 
     <section class="title">
+        <h3 class="headsection">Zestawienie informacji pogodowych jednego miasta z @ViewBag.days dni</h3>
         <form asp-controller="Home" asp-action="ManyDaysCityResult" method="get">
             <div class="input-group mb-3">
                 <input type="text" name="town" class="form-control" placeholder="Nazwa miasta" aria-label="Nazwa miasta" aria-describedby="button-addon2">
                 <input type="hidden" name="days" value="@ViewBag.days">
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
+                    <input type="submit" class="btn btn-dark" id="button-addon2" value="Szukaj" />
                 </div>
             </div>
         </form>

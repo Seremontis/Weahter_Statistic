@@ -7,8 +7,8 @@ var subtitleTxt = 'Dane od ' + arrayDate[0] + ' do ' + arrayDate[arrayDate.lengt
 var city1 = arrayInfo1[0].place;
 var city2 = arrayInfo2[0].place;
 
-var color1 = '#D25252';
-var color2 = '#ce5c00';
+var color1 = '#FF8C00';
+var color2 = '#9ACD32';
 
 var visibleStart = StartPoint();
 var visibleEnd = EndPoint();
@@ -207,7 +207,7 @@ function AddWind(x) {
 }
 
 function SetTime(array) {
-    var date = Date.UTC(2019, 0, 1, array[0], array[1], array[2]);
+    var date = Date.UTC(2019, 0, 1, array[0]+2, array[1], array[2]);
     return date;
 }
 
@@ -243,6 +243,9 @@ $(document).ready(function () {
             dateTimeLabelFormats: {
                 day: '%H:%M'
             },
+            title: {
+                text: 'Godziny'
+            }
         },
 
         tooltip: {

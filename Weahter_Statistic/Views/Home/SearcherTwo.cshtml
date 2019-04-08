@@ -26,21 +26,30 @@
 <article>
 
     <section class="title">
-        <form asp-controller="Home" asp-action="@ViewBag.operation" method="get">
-            <div class="row">
-                <div class="col">
-                    <input type="text" name="town1" class="form-control" placeholder="Miasto nr.1">
+        <h3 class="headsection">Zestawienie informacji pogodowych dwóch miast
+        @if (ViewBag.days==1) {
+            <span>z dnia wczorajszego</span>
+        }
+        else
+        {
+            <span>z ostatnich @ViewBag.days dni</span>
+        }
+        </h3>
+            <form asp-controller="Home" asp-action="@ViewBag.operation" method="get">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="town1" class="form-control" placeholder="Miasto nr.1">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="town2" class="form-control" placeholder="Miasto nr.2">
+                    </div>
+                    <input type="hidden" name="days" value="@ViewBag.days">
                 </div>
-                <div class="col">
-                    <input type="text" name="town2" class="form-control" placeholder="Miasto nr.2">
+                <div class="row justify-content-xl-center m-3">
+                    <button type="submit" class="btn btn-success btn-lg mybutton">Porównaj</button>
                 </div>
-                <input type="hidden" name="days" value="@ViewBag.days">
-            </div>
-            <div class="row justify-content-xl-center m-3">
-                <button type="submit" class="btn btn-success btn-lg">Porównaj</button>
-            </div>
-        </form>
-    </section>
+            </form>
+</section>
     @if (ViewBag.flag != true)
     {
         <section>

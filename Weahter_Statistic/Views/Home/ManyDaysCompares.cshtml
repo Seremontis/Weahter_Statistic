@@ -10,21 +10,22 @@
 <article>
     <link rel="stylesheet" href="~/css/TwoCities.css" />
     <section class="title">
-        <form asp-controller="Home" asp-action="ManyDaysComparesResult" method="get">
-            <div class="row">
-                <div class="col">
-                    <input type="text" name="town1" class="form-control" placeholder="Miasto nr.1">
+        <h3 class="headsection">Zestawienie informacji pogodowych dwóch miast z ostatnich @ViewBag.days dni</h3>
+            <form asp-controller="Home" asp-action="ManyDaysComparesResult" method="get">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="town1" class="form-control" placeholder="Miasto nr.1">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="town2" class="form-control" placeholder="Miasto nr.2">
+                    </div>
+                    <input type="hidden" name="days" value="@ViewBag.days" />
                 </div>
-                <div class="col">
-                    <input type="text" name="town2" class="form-control" placeholder="Miasto nr.2">
+                <div class="row justify-content-xl-center m-3">
+                    <button type="submit" class="btn btn-success btn-lg">Porównaj</button>
                 </div>
-                <input type="hidden" name="days" value="@ViewBag.days" />
-            </div>
-            <div class="row justify-content-xl-center m-3">
-                <button type="submit" class="btn btn-success btn-lg">Porównaj</button>
-            </div>
-        </form>
-    </section>
+            </form>
+</section>
     @if (ViewBag.flag != true)
     {
         <section>
@@ -304,35 +305,49 @@
                             }
                         </tr>
                         <tr class="d-flex town1">
-                            <th class="col-sm-2">@Model.City1[0].Place</th>
-                            <th class="col-sm-2">Prędkość wiatru</th>
+                            <th class="col-sm-2 bg-secondary">@Model.City1[0].Place</th>
+                            <th class="col-sm-2 bg-secondary">Prędkość wiatru</th>
                             @foreach (var item in Model.City1)
                             {
                                 <td class="col-sm">@item.Windspeed km/h</td>
                             }
                         </tr>
                         <tr class="d-flex town1">
-                            <th class="col-sm-2" />
-                            <th class="col-sm-2">Kierunek wiatru</th>
+                            <th class="col-sm-2 bg-secondary" />
+                            <th class="col-sm-2 bg-secondary">Kierunek wiatru</th>
                             @foreach (var item in Model.City1)
                             {
-                                <td class="col-sm">@item.Direct</td>
+                                if (item.Windspeed >= 1)
+                                {
+                                    <td class="col-sm">@item.Direct</td>
+                                }
+                                else
+                                {
+                                    <td class="col-sm">0</td>
+                                }
                             }
                         </tr>
                         <tr class="d-flex town2">
-                            <th class="col-sm-2">@Model.City2[0].Place</th>
-                            <th class="col-sm-2">Prędkość wiatru</th>
+                            <th class="col-sm-2 bg-secondary">@Model.City2[0].Place</th>
+                            <th class="col-sm-2 bg-secondary">Prędkość wiatru</th>
                             @foreach (var item in Model.City2)
                             {
                                 <td class="col-sm">@item.Windspeed km/h</td>
                             }
                         </tr>
                         <tr class="d-flex town2">
-                            <th class="col-sm-2" />
-                            <th class="col-sm-2">Prędkość wiatru</th>
+                            <th class="col-sm-2 bg-secondary" />
+                            <th class="col-sm-2 bg-secondary">Prędkość wiatru</th>
                             @foreach (var item in Model.City2)
                             {
-                                <td class="col-sm">@item.Direct</td>
+                                if (item.Windspeed >= 1)
+                                {
+                                    <td class="col-sm">@item.Direct</td>
+                                }
+                                else
+                                {
+                                    <td class="col-sm">0</td>
+                                }
                             }
                         </tr>
                     </table>
@@ -346,7 +361,7 @@
 
                     <table class="table table-bordered table-dark">
                         <tr class="d-flex">
-                            <th class="col-sm-2 bg-secondary"/>
+                            <th class="col-sm-2 bg-secondary" />
                             @for (int i = 1; i <= ViewBag.days; i++)
                             {
                                 <th class="col-sm bg-secondary">Dzień @i</th>
@@ -367,7 +382,99 @@
                             }
                         </tr>
                     </table>
-
+                </div>
+                <div class="summary">
+                    <h3>Podsumowanie</h3>
+                    <p>
+                        Maksymalna temperatura w ciągu dnia:
+                        @if (Model.City1.Max(x => x.MaxTemp) > Model.City2.Max(x => x.MaxTemp))
+                        {
+                            <strong>@Model.City1.Max(x => x.MaxTemp)&degC(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Max(x => x.MaxTemp) < Model.City2.Max(x => x.MaxTemp))
+                        {
+                            <strong>@Model.City2.Max(x => x.MaxTemp)&degC(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Max(x => x.MaxTemp)&degC(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
+                    <p>
+                        Minimalna temperatura w ciągu dnia:
+                        @if (Model.City1.Max(x => x.MaxTemp) > Model.City2.Max(x => x.MaxTemp))
+                        {
+                            <strong>@Model.City1.Min(x => x.MinTemp)&degC(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Min(x => x.MinTemp) < Model.City2.Max(x => x.MaxTemp))
+                        {
+                            <strong>@Model.City2.Min(x => x.MinTemp)&degC(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Min(x => x.MinTemp)&degC(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
+                    <p>
+                        Maksymalne ciśnienie w ciągu dnia:
+                        @if (Model.City1.Max(x => x.Pressure) > Model.City2.Max(x => x.Pressure))
+                        {
+                            <strong>@Model.City1.Max(x => x.Pressure) hPa(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Max(x => x.Pressure) < Model.City2.Max(x => x.Pressure))
+                        {
+                            <strong>@Model.City2.Max(x => x.Pressure) hPa(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Max(x => x.Pressure) hPa(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
+                    <p>
+                        Minimalne ciśnienie w ciągu dnia:
+                        @if (Model.City1.Max(x => x.Pressure) > Model.City2.Max(x => x.Pressure))
+                        {
+                            <strong>@Model.City1.Min(x => x.Pressure) hPa(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Min(x => x.Pressure) < Model.City2.Max(x => x.Pressure))
+                        {
+                            <strong>@Model.City2.Min(x => x.Pressure) hPa(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Min(x => x.Pressure) hPa(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
+                    <p>
+                        Najwyższe opady:
+                        @if (Model.City1.Max(x => x.Rainfall) > Model.City2.Max(x => x.Rainfall))
+                        {
+                            <strong>@Model.City1.Max(x => x.Rainfall) mm(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Max(x => x.Rainfall) < Model.City2.Max(x => x.Rainfall))
+                        {
+                            <strong>@Model.City2.Max(x => x.Rainfall) mm(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Max(x => x.Rainfall) mm(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
+                    <p>
+                        Najdalsza widoczność:
+                        @if (Model.City1.Max(x => x.Visible) > Model.City2.Max(x => x.Visible))
+                        {
+                            <strong>@Model.City1.Max(x => x.Visible) km(@Model.City1[0].Place)</strong>
+                        }
+                        else if (Model.City1.Max(x => x.Visible) < Model.City2.Max(x => x.Visible))
+                        {
+                            <strong>@Model.City2.Max(x => x.Visible) km(@Model.City2[0].Place)</strong>
+                        }
+                        else
+                        {
+                            <strong>@Model.City1.Max(x => x.Visible) km(zanotowana w obu miastach)</strong>
+                        }
+                    </p>
                 </div>
             </div>
         </section>

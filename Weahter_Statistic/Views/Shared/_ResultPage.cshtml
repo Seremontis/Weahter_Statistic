@@ -41,19 +41,14 @@
                             <li>
                                 <ul class="navOption">
                                     Dane przeszłe dla dwóch miast
-                                    <li><a asp-controller="Home" asp-action="Searcher" asp-route-days="1">Wczoraj</a></li>
+                                    <li><a asp-controller="Home" asp-action="SearcherTwo" asp-route-days="1">Wczoraj</a></li>
                                     <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="3">3 dni</a></li>
                                     <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="7">7 dni</a></li>
                                     <li><a asp-controller="Home" asp-action="ManyDaysCompares" asp-route-days="14">14 dni</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <ul class="navOption">
-                                    Prognozy
-                                    <li>jutro</li>
-                                    <li>3 dni</li>
-                                    <li>7 dni</li>
-                                </ul>
+                            <li class="futureWet">
+                                   <a asp-controller="Home" asp-action="FutureDay" style="text-wrap:normal;">Prognozy na jutro</a>
                             </li>
                         </ul>
                     </nav>
