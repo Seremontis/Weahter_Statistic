@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
+﻿using System.Xml;
 
 namespace Weather_Statistic.Models
 {
+    /// <summary>
+    /// load key API from file XML require to load data
+    /// line 22: place to modified path to file XML
+    /// </summary>
+
     public class KeyApi
     {
        private XmlDocument document;

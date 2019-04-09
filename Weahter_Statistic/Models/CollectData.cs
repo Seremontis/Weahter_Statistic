@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Weather_Statistic.Models;
 
 namespace Weather_Statistic
 {
+    /// <summary>
+    /// Generate Lists to models
+    /// </summary>
     public class CollectData
     {
-        private MultiDaysCompares modelsResult;
+        private MultiDaysComparesModel modelsResult;
         private List<OneInfoModel> infoModel;
 
         public CollectData()
         {
-            modelsResult = new MultiDaysCompares();
+            modelsResult = new MultiDaysComparesModel();
             infoModel = new List<OneInfoModel>();
         }
 
-        public MultiDaysCompares CreateList(string town1, string town2,int days)
+        //Create list for two towns
+        public MultiDaysComparesModel CreateList(string town1, string town2,int days)
         {
             var geo = DownLocation(town1, town2);
             DateTime time = DateTime.Now;
@@ -30,6 +32,8 @@ namespace Weather_Statistic
             modelsResult.City2[0].Place = geo[1].Item3;
             return modelsResult;
         }
+
+        //Create list to one towns
         public List<OneInfoModel> CreateList(string town, int days)
         {
             var geo = DownLocation(town);
@@ -45,6 +49,7 @@ namespace Weather_Statistic
             return infoModel;
         }
 
+        //Create list for one town tomorrow
         public List<OneInfoModel> CreateListFuture(string town)
         {
             var geo = DownLocation(town);
@@ -54,12 +59,15 @@ namespace Weather_Statistic
             return infoModel;
         }
 
+        //Search location two towns
         private (double, double, string)[] DownLocation(string town1, string town2)
         {
             var name = new LocationName();
             (double, double, string)[] locations = { (name.GetPoint(town1)), (name.GetPoint(town2)) };
             return locations;
         }
+
+        //Search location one town
         private (double, double, string) DownLocation(string town)
         {
             var name = new LocationName();
@@ -67,6 +75,7 @@ namespace Weather_Statistic
             return locations;
         }
 
+        //Load data from API(past)
         private OneInfoModel DownWeather(double lati,double lang, DateTime date)
         {
             var weather = new WeatherConnect();
@@ -74,6 +83,7 @@ namespace Weather_Statistic
             return info;
         }
 
+        //Load data from API(future)
         private List<OneInfoModel> DownWeatherFut(double lati, double lang, DateTime date)
         {
             var weather = new WeatherConnect();

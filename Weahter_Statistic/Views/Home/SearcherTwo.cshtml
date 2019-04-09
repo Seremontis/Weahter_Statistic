@@ -1,4 +1,4 @@
-﻿@model Weather_Statistic.Models.MultiDaysCompares;
+﻿@model Weather_Statistic.Models.MultiDaysComparesModel
 @{
     ViewData["Title"] = "SearcherTwo";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
@@ -73,7 +73,7 @@
                         <div class="linecenter"><span class="town2">@City2.Sunrise</span></div>
                         <div class="half-circle">
                         </div>
-                        <div class="linecenter"><span class="town1">@City2.Sunset</span></div>
+                        <div class="linecenter"><span class="town2">@City2.Sunset</span></div>
                     </div>
                 </div>
             </div>
@@ -120,10 +120,10 @@
                             <img src="~/picture/warm.svg" />
                             <div class="authors">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
                         </div>
-                        <div class="linecenter righttext"><span class="town1"> @City2.MaxTemp&degC</span> </div>
+                        <div class="linecenter righttext"><span class="town2"> @City2.MaxTemp&degC</span> </div>
                     </div>
                     <div class="line">
-                        <div class="linecenter righttext"> <span class="town2">@City1.MinTemp&degC</span></div>
+                        <div class="linecenter righttext"> <span class="town1">@City1.MinTemp&degC</span></div>
 
                         <div class="groupImage">
                             <img src="~/picture/cold.svg" />
@@ -154,11 +154,11 @@
                         <div class="linecenter righttext">
                             @if (City2.TypeWeat == "rain" || City2.TypeWeat == "sleet")
                             {
-                                <p class="town1">@City2.Rainfall mm</p>
+                                <p class="town2">@City2.Rainfall mm</p>
                             }
                             else
                             {
-                                <p class="town1">0 mm</p>
+                                <p class="town2">0 mm</p>
                             }
                         </div>
                     </div>
@@ -166,11 +166,11 @@
                         <div class="linecenter righttext">
                             @if (City1.TypeWeat == "snow" || City1.TypeWeat == "sleet")
                             {
-                                <p class="town2">@City1.Rainfall mm</p>
+                                <p class="town1">@City1.Rainfall mm</p>
                             }
                             else
                             {
-                                <p class="town2">0 mm</p>
+                                <p class="town1">0 mm</p>
                             }
                         </div>
                         <div class="groupImage">

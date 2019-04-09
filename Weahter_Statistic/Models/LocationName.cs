@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using OpenCage.Geocode;
 
 namespace Weather_Statistic.Models
 {
+    /// <summary>
+    /// Location API to identified places
+    /// </summary>
     public class LocationName
     {
         readonly Geocoder service;

@@ -96,6 +96,15 @@
                         <p>Moment zachodu słońca: <strong>@tempsun.ToString("HH:mm") </strong></p>
                         <p>Maksymalne ciśnienie w ciągu dnia: <strong>@Model.Max(x => x.Pressure) hPa</strong></p>
                         <p>Minimalne ciśnienie w ciągu dnia: <strong>@Model.Min(x => x.Pressure) hPa</strong></p>
+                        <p>Liczba godzin, w których jest ryzyko opadów w ciągu 24h: <strong>@Model.Count(x => x.Rainfall > 0)</strong></p>
+
+                        <h4>Ciekawostki</h4>
+                        <p>Mediana temperatury maksymalnej (godzinowej) wynosi: <strong>@ViewBag.medianTemp hPa</strong></p>
+                        <p>Mediana ciśnienia (godzinowej) wynosi: <strong>@ViewBag.medianPressure hPa</strong></p>
+                        <p>Średnia temperatury maksymalnej (godzinowej) wynosi: <strong>@Model.Average(x=>x.MaxTemp) hPa</strong></p>
+                        <p>Odchylenie standardowe temperatury maksymalnej (godzinowej) wynosi: <strong>@ViewBag.devationTemp&degC</strong></p>
+                        <p>Średnie ciśnienie (godzinowe) wynosi: <strong>@Model.Average(x => x.Pressure) hPa</strong></p>
+                        <p>Odchylenie standardowe ciśnienia wynosi: <strong>@ViewBag.devationPress hPa</strong></p>
                     </div>
                 </div>
             </div>

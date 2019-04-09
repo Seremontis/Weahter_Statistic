@@ -38,27 +38,27 @@
                 <div class="">
                     <div id="sunriset" style="min-width: 310px; height: 400px; margin: 25px auto"></div>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-dark">
+                        <table class="table table-bordered table-dark" style="width:100%;">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
-                                    <th class="col-sm bg-secondary">Dzień @i</th>
+                                    <th class="col-sm-2 bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Wschód</th>
+                                <th class="col-sm-2 bg-secondary">Wschód</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Sunrise</td>
+                                    <td class="col-sm-2 table-dark">@item.Sunrise</td>
 
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Zachód</th>
+                                <th class="col-sm-2 bg-secondary">Zachód</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Sunset</td>
+                                    <td class="col-sm-2 table-dark">@item.Sunset</td>
                                 }
                             </tr>
                         </table>
@@ -82,7 +82,7 @@
                                 <th class="col-sm bg-secondary">Ciśnienie</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Pressure hPa</td>
+                                    <td class="col-sm table-dark">@item.Pressure hPa</td>
                                 }
                             </tr>
                         </table>
@@ -97,17 +97,17 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary"> Poziom wilgotności</th>
+                                <th class="col-sm-2 bg-secondary"> Poziom wilgotności</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Humadity%</td>
+                                    <td class="col-sm table-dark">@item.Humadity%</td>
                                 }
                             </tr>
                         </table>
@@ -121,17 +121,17 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Poziom zachmurzenia</th>
+                                <th class="col-sm-2 bg-secondary">Poziom zachmurzenia</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Cloudy%</td>
+                                    <td class="col-sm table-dark">@item.Cloudy%</td>
                                 }
                             </tr>
                         </table>
@@ -145,24 +145,24 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Tempreatura maksymanlna</th>
+                                <th class="col-sm-2 bg-secondary">Tempreatura maksymanlna</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.MaxTemp&degC</td>
+                                    <td class="col-sm table-dark">@item.MaxTemp&degC</td>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Temperatura minimalna</th>
+                                <th class="col-sm-2 bg-secondary">Temperatura minimalna</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.MinTemp&degC</td>
+                                    <td class="col-sm table-dark">@item.MinTemp&degC</td>
                                 }
                             </tr>
                         </table>
@@ -177,34 +177,33 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Ilość opadów[mm]</th>
+                                <th class="col-sm-2 bg-secondary">Ilość opadów[mm]</th>
                                 @foreach (var item in Model)
                                 {
-                                    string answer;
                                     if (item.TypeWeat == "rain")
                                     {
-                                        answer = "deszczu";
+                                        <td class="col-sm table-dark">@item.Rainfall deszczu</td>
                                     }
                                     else if (item.TypeWeat == "snow")
                                     {
-                                        answer = "śniegu";
+                                        <td class="col-sm table-dark">@item.Rainfall śniegu</td>
                                     }
                                     else if (item.TypeWeat == "sleet")
                                     {
-                                        answer = "śniegu z deszczem";
+                                        <td class="col-sm table-dark">@item.Rainfall deszczu ze śniegiem</td>
                                     }
                                     else
                                     {
-                                        answer = "";
+                                        <td class="col-sm table-dark">@item.Rainfall</td>
                                     }
-                                    <td class="col-sm">@item.Rainfall @answer</td>
+                                    
                                 }
                             </tr>
                         </table>
@@ -218,24 +217,24 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Prędkość wiartu</th>
+                                <th class="col-sm-2 bg-secondary">Prędkość wiartu</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Windspeed km/h</td>
+                                    <td class="col-sm table-dark">@item.Windspeed km/h</td>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Kierunek wiatru</th>
+                                <th class="col-sm-2 bg-secondary">Kierunek wiatru</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Direct</td>
+                                    <td class="col-sm table-dark">@item.Direct</td>
                                 }
                             </tr>
                         </table>
@@ -249,17 +248,17 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-dark">
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary" />
+                                <th class="col-sm-2 bg-secondary" />
                                 @for (int i = 1; i <= ViewBag.days; i++)
                                 {
                                     <th class="col-sm bg-secondary">Dzień @i</th>
                                 }
                             </tr>
                             <tr class="d-flex">
-                                <th class="col-sm bg-secondary">Widoczność</th>
+                                <th class="col-sm-2 bg-secondary">Widoczność</th>
                                 @foreach (var item in Model)
                                 {
-                                    <td class="col-sm">@item.Visible @item.TypeLeng</td>
+                                    <td class="col-sm table-dark">@item.Visible @item.TypeLeng</td>
                                 }
                             </tr>
                         </table>
@@ -274,25 +273,25 @@
 
                 </p>
                 <p>
-                    Minimalna temperatura w ciągu dnia:<strong>@Model.Min(x => x.MinTemp)&degC</strong>
+                    Minimalna temperatura w ciągu dnia: <strong>@Model.Min(x => x.MinTemp)&degC</strong>
                 </p>
                 <p>
-                    Średnia maksymalna temperatura w ciągu dnia:<strong>@Model.Average(x => x.MinTemp)&degC</strong>
+                    Średnia maksymalna temperatura w ciągu dnia: <strong>@Model.Average(x => x.MinTemp)&degC</strong>
                 </p>
                 <p>
-                    Średnia minimalna temperatura w ciągu ostatnich dni:<strong>@Model.Average(x => x.MinTemp)&degC</strong>
+                    Średnia minimalna temperatura w ciągu ostatnich dni: <strong>@Model.Average(x => x.MinTemp)&degC</strong>
                 </p>
                 <p>
-                    Maksymalne ciśnienie w ciągu ostatnich dni:<strong>@Model.Max(x => x.Pressure) hPa.</strong>
+                    Maksymalne ciśnienie w ciągu ostatnich dni: <strong>@Model.Max(x => x.Pressure) hPa.</strong>
                 </p>
                 <p>
-                    Średnie ciśnienie w ciągu ostatnich dni:<strong>@Model.Average(x => x.Pressure) hPa.</strong>
+                    Średnie ciśnienie w ciągu ostatnich dni: <strong>@Model.Average(x => x.Pressure) hPa.</strong>
                 </p>
                 <p>
-                    Najwyższe opady:<strong>@Model.Max(x => x.Rainfall) mm</strong>
+                    Najwyższe opady: <strong>@Model.Max(x => x.Rainfall) mm</strong>
                 </p>
                 <p>
-                    Średnie opady w ciągu ostatnich dni:<strong>@Model.Average(x => x.Rainfall) mm</strong>
+                    Średnie opady w ciągu ostatnich dni: <strong>@Model.Average(x => x.Rainfall) mm</strong>
                 </p>
                 <p>
                     Najdalsza widoczność: <strong>@Model.Max(x => x.Visible) km.</strong>

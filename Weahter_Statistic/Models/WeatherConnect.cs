@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using DarkSkyApi;
 using DarkSkyApi.Models;
 
 namespace Weather_Statistic.Models
 {
+    /// <summary>
+    /// Weather API to connect of data
+    /// </summary>
     public class WeatherConnect
     {
         readonly DarkSkyService client;

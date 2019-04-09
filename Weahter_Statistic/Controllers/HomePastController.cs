@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Weather_Statistic.Models;
 
 namespace Weather_Statistic.Controllers
 {
@@ -97,9 +95,14 @@ namespace Weather_Statistic.Controllers
             }
             else
             {
-                ViewBag.flag = true;
-                ViewBag.days = days;
                 var models = collect.CreateList(town1, town2, days);
+                StatisticOperation statistic = new StatisticOperation();
+                ViewBag.DevTempTown1 = statistic.Devation(models.City1.Select(x => x.MaxTemp).ToArray());
+                ViewBag.DevTempTown2 = statistic.Devation(models.City1.Select(x => x.MaxTemp).ToArray());
+                ViewBag.DevPresTown1 = statistic.Devation(models.City1.Select(x => x.Pressure).ToArray());
+                ViewBag.DevPresTown2 = statistic.Devation(models.City1.Select(x => x.Pressure).ToArray());
+                ViewBag.flag = true;
+                ViewBag.days = days;              
                 return View("ManyDaysCompares", models);
             }
         }

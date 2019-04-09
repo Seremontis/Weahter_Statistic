@@ -1,4 +1,4 @@
-﻿@model Weather_Statistic.Models.MultiDaysCompares
+﻿@model Weather_Statistic.Models.MultiDaysComparesModel
 @{
     ViewData["Title"] = "ManyDaysCompares";
     Layout = "~/Views/Shared/_ResultPage.cshtml";
@@ -22,7 +22,7 @@
                     <input type="hidden" name="days" value="@ViewBag.days" />
                 </div>
                 <div class="row justify-content-xl-center m-3">
-                    <button type="submit" class="btn btn-success btn-lg">Porównaj</button>
+                    <button type="submit" class="btn btn-success btn-lg mybutton">Porównaj</button>
                 </div>
             </form>
 </section>
@@ -337,7 +337,7 @@
                         </tr>
                         <tr class="d-flex town2">
                             <th class="col-sm-2 bg-secondary" />
-                            <th class="col-sm-2 bg-secondary">Prędkość wiatru</th>
+                            <th class="col-sm-2 bg-secondary">Kierunek wiatru</th>
                             @foreach (var item in Model.City2)
                             {
                                 if (item.Windspeed >= 1)
@@ -460,6 +460,9 @@
                             <strong>@Model.City1.Max(x => x.Rainfall) mm(zanotowana w obu miastach)</strong>
                         }
                     </p>
+
+                    <p>W ciągu ostatnich @ViewBag.days w mieście @Model.City1[0].Place deszcz wystąpił @Model.City1.Count(x => x.Rainfall > 0)razy, natomiast w mieście @Model.City2.Count(x => x.Rainfall > 0) razy</p>
+
                     <p>
                         Najdalsza widoczność:
                         @if (Model.City1.Max(x => x.Visible) > Model.City2.Max(x => x.Visible))
@@ -475,6 +478,53 @@
                             <strong>@Model.City1.Max(x => x.Visible) km(zanotowana w obu miastach)</strong>
                         }
                     </p>
+
+                    <h4>Ciekawostki</h4>
+                    <p>
+                        Średnia temperatury maksymalnej wynosi:
+                    </p>
+                    <ul>
+                        <li>
+                            Dla miasta @Model.City1[0].Place <strong>@Model.City1.Average(x => x.MaxTemp) hPa</strong>
+                        </li>
+                        <li>
+                            Dla miasta @Model.City2[0].Place <strong>@Model.City2.Average(x => x.MaxTemp) hPa</strong>
+                        </li>
+                    </ul>
+                    <p>
+                        Odchylenie standardowe temperatury maksymalnej(godzinowej)wynosi:
+                    </p>
+                    <ul>
+                        <li>
+                            Dla miasta @Model.City1[0].Place <strong>@ViewBag.devTempTown1&degC</strong>
+                        </li>
+                        <li>
+                            Dla miasta @Model.City2[0].Place <strong>@ViewBag.devTempTown2&degC</strong>
+                        </li>
+                    </ul>
+
+                    <p>
+                        Średnie ciśnienie wynosi:
+                    </p>
+                    <ul>
+                        <li>
+                            Dla miasta @Model.City1[0].Place <strong>@Model.City1.Average(x => x.Pressure)hPa</strong>
+                        </li>
+                        <li>
+                            Dla miasta @Model.City2[0].Place <strong>@Model.City2.Average(x => x.Pressure) hPa</strong>
+                        </li>
+                    </ul>
+                    <p>
+                        Odchylenie standardowe ciśnienia wynosi:
+                    </p>
+                    <ul>
+                        <li>
+                            Dla miasta @Model.City1[0].Place <strong>@ViewBag.devPresTown1 hPa</strong>
+                        </li>
+                        <li>
+                            Dla miasta @Model.City2[0].Place <strong>@ViewBag.devPresTown2 hPa</strong>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -496,7 +546,7 @@
 
     </script>
 }
-<!--<script src="https://code.highcharts.com/modules/windbarb.js"></script>-->
+
 <script src="~/js/mycharttwo.js">
 
 </script>

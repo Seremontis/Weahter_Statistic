@@ -269,6 +269,10 @@ nav {
                 border-bottom:none;
             }
 
+            .detailmenu>ul>li>a{
+                display:block;
+            }
+
 .detailmenu> p:hover,.future:hover {
     background: #2f2d2d;
     border-radius:25px;

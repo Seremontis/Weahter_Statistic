@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Weather_Statistic.Models
 {
+    // Direct wind
     public enum Direction
     {
         brak,
@@ -18,13 +18,14 @@ namespace Weather_Statistic.Models
         NW
     }
 
+    //Type length visible
     public enum Leng
     {
         m,
         km,
     }
 
-
+    //Model primary
     public class OneInfoModel
     {
         public Int32 Day { get; set; }

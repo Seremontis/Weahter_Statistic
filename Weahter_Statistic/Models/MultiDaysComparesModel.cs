@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Weather_Statistic.Models
 {
-    public class MultiDaysCompares
+    //Extend model
+    public class MultiDaysComparesModel
     {
-        public MultiDaysCompares()
+        public MultiDaysComparesModel()
         {
             City1 = new List<OneInfoModel>();
             City2 = new List<OneInfoModel>();

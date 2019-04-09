@@ -36,11 +36,14 @@ h1{
 /*Colors for cities*/
 .town1 {
     color: #ea8606;
-    font-weight:bold;
 }
 
 .town2 {
-    color: #9ACD32;
+    color: #9ACD32; 
+}
+
+.town1, .town2 {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-weight: bold;
 }
 
@@ -48,4 +51,3 @@ h1{
 .mybutton{
     margin:auto;
 }
-
