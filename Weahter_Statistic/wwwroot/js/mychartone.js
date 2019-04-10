@@ -436,7 +436,7 @@ $(document).ready(function () {
         },
         yAxis: {
             title: {
-                text: 'Predkość wiatru [km/h]'
+                text: 'Predkość wiatru [m/s]'
             }
         },
         series: [{

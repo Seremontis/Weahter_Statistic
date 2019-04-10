@@ -22,13 +22,13 @@ namespace Weather_Statistic.Models
         async public Task<OneInfoModel> ResultOneSearch(double lati,double longti,DateTime dateTime)
         {
             var exclusionList = new List<Exclude> { Exclude.Currently,Exclude.Hourly, };
-            Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.Auto, exclusionList);
+            Forecast result = await client.GetTimeMachineWeatherAsync(lati, longti, dateTime, Unit.SI, exclusionList);
             var cut = result.Daily.Days[0];
             OneInfoModel oneInfo = new OneInfoModel
             {
                 Day = cut.Time.ToUnixTime(),
                 Pressure = cut.Pressure,
-                Humadity = cut.Humidity * 100,
+                Humadity = (int)(cut.Humidity * 100),
                 Cloudy = (int)(cut.CloudCover * 100),
                 Sunrise = cut.SunriseTime.DateTime.AddHours(2),
                 Sunset = cut.SunsetTime.DateTime.AddHours(2),
@@ -36,7 +36,7 @@ namespace Weather_Statistic.Models
                 TypeWeat = cut.PrecipitationType,
                 MaxTemp = cut.HighTemperature,
                 MinTemp = cut.LowTemperature,
-                Windspeed = (float)(Math.Round(cut.WindSpeed * 1.609344, 2)),
+                Windspeed = cut.WindSpeed,
                 Direct = ConvertDirect(cut.WindBearing),
                 DirectNumber=cut.WindBearing,
                 Visible = cut.Visibility < 1 ? cut.Visibility * 1000 : cut.Visibility,

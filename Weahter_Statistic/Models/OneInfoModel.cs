@@ -36,7 +36,7 @@ namespace Weather_Statistic.Models
         public float MaxTemp { get; set; }
         public float MinTemp { get; set; }
         public float Pressure { get; set; }
-        public float Humadity { get; set; }
+        public int Humadity { get; set; }
         public int Cloudy { get; set; }
         public float Rainfall { get; set; }
         public float Windspeed { get; set; }
