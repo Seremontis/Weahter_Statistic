@@ -26,10 +26,5 @@ namespace Weather_Statistic.Models
 
             return (latitude,longtitude,detail);
         }
-
-        internal object GetPoint()
-        {
-            throw new ArgumentNullException();
-        }
     }
 }
