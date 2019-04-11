@@ -36,7 +36,7 @@
     else
     {
         <section class="resultSection">
-        <div class="twoCities"><h1 class="hleft">Wyniki dla:<span class="town1">@Model.City1[0].Place</span></h1><h1 class="hright">Wyniki dla:<span class="town2">@Model.City2[0].Place</span></h1></div>
+        <div class="twoCities"><h1 class="hleft">Wyniki dla: <span class="town1">@Model.City1[0].Place</span></h1><h1 class="hright">Wyniki dla: <span class="town2">@Model.City2[0].Place</span></h1></div>
             <div class="default">
                 <h3>Wschód i zachód słońca</h3>
 
@@ -461,7 +461,7 @@
                         }
                     </p>
 
-                    <p>W ciągu ostatnich @ViewBag.days w mieście @Model.City1[0].Place deszcz wystąpił @Model.City1.Count(x => x.Rainfall > 0)razy, natomiast w mieście @Model.City2.Count(x => x.Rainfall > 0) razy</p>
+                    <p>W ciągu ostatnich @ViewBag.days dni w mieście @Model.City1[0].Place deszcz wystąpił @Model.City1.Count(x => x.Rainfall > 0) raz(y), natomiast w mieście @Model.City2.Count(x => x.Rainfall > 0) raz(y)</p>
 
                     <p>
                         Najdalsza widoczność:
@@ -492,7 +492,7 @@
                         </li>
                     </ul>
                     <p>
-                        Odchylenie standardowe temperatury maksymalnej(godzinowej)wynosi:
+                        Odchylenie standardowe temperatury maksymalnej wynosi:
                     </p>
                     <ul>
                         <li>

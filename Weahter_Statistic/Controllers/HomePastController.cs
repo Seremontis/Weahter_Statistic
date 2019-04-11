@@ -35,6 +35,7 @@ namespace Weather_Statistic.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult SearcherTwo(int days)
         {
             ViewBag.flag = false;
@@ -59,6 +60,7 @@ namespace Weather_Statistic.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult ManyDaysCity(int days = 3)
         {
             ViewBag.flag = false;
@@ -66,6 +68,7 @@ namespace Weather_Statistic.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ManyDaysCityResult(string town, int days)
         {
             if (town == null)
@@ -80,6 +83,8 @@ namespace Weather_Statistic.Controllers
                 return View("ManyDaysCity", models);
             }
         }
+
+        [HttpGet]
         public IActionResult ManyDaysCompares(int days = 2)
         {
             ViewBag.flag = false;
@@ -87,6 +92,7 @@ namespace Weather_Statistic.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ManyDaysComparesResult(string town1, string town2, int days)
         {
             if (town1 == null || town2==null)

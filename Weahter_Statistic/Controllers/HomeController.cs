@@ -12,17 +12,20 @@ namespace Weather_Statistic.Controllers
     {
         private CollectData collect = new CollectData();
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult FutureDay()
         {
             ViewBag.flag = false;       
             return View();
         }
 
+        [HttpGet]
         public IActionResult FutureDayResult(string town)
         {
             if (town == null)

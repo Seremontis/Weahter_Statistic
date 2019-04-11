@@ -56,6 +56,10 @@
                                 foreach (var item in Model)
                                 {
                                     int temp = item.SunriseTime[0] + 2;
+                                    if (temp > 23)
+                                    {
+                                        temp -= 24;
+                                    }
                                 <tr class="d-flex">
                                     <th class="col-sm bg-secondary">@temp:00</th>
                                     <td class="col-sm">@item.MaxTemp&deg C</td>
