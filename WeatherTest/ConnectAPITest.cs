@@ -3,7 +3,7 @@ using Weather_Statistic.Models;
 
 namespace Tests
 {
-    public class Tests
+    public class ConnectApiTest
     {
         KeyApi KeyApi = new KeyApi();
 
@@ -13,17 +13,24 @@ namespace Tests
         }
 
         [Test]
+        public void KeyConnect()
+        {
+            Assert.AreNotEqual(null, KeyApi);
+        }
+
+        [Test]
         public void LoadWeatherTest()
         {
-            string result = KeyApi.LoadWeatherApi();
-            Assert.AreNotEqual(null, result);
+            var result = KeyApi.LoadWeatherApi();
+            Assert.IsNotNull(result);
         }
 
         [Test]
         public void LoadLocationTest()
         {
-            string result = KeyApi.LoadLocationApi();
-            Assert.AreNotEqual(null,result);
+            var result = KeyApi.LoadLocationApi();
+            Assert.IsNotNull(result);
         }
+
     }
 }
