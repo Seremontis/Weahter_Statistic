@@ -15,10 +15,10 @@ Image of main page Weather Statistic
 ![Image of main page Weather Statistic](/Screen/main_page.png)
 
 Search one city Weather Statistic
-![Image of one city Weather Statistic](/Screen/OneTow.png)
+![Image of one city Weather Statistic](/Screen/OneTown.png)
 
 Search two cities Weather Statistic
-![Image of two city Weather Statistic](/Screen/TwoTows.png)
+![Image of two city Weather Statistic](/Screen/TwoTowns.png)
 
 Forecast for one city
 ![Image of forecat Weather Statistic](/Screen/predict.png)
