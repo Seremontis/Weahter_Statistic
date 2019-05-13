@@ -7,3 +7,5 @@ TODO:
 - improve responsive page (present HD and FULL HD)
 - improve throw exception
 - add forecast for next days
+
+![Image of main page Weather Statistic](/screen/main_page.png)
