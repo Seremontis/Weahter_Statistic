@@ -8,4 +8,4 @@ TODO:
 - improve throw exception
 - add forecast for next days
 
-![Image of main page Weather Statistic](/screen/main_page.png)
+![Image of main page Weather Statistic](Weather_Statistic/Screen/main_page.png)
