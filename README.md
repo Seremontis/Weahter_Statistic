@@ -14,8 +14,8 @@ To correct working reqiured file (default path and name file in the program is C
 ----
 <?xml version="1.0"?>
 -<API>
-<Weather> acces code to darksky.net</Weather>
-<Location> acces code to opencagedata.com</Location>
+<Weather>acces code to darksky.net</Weather>
+<Location>acces code to opencagedata.com</Location>
 </API>
 -----
 
