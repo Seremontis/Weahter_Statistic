@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 
 namespace Weather_Statistic.Models
 {
@@ -14,7 +15,20 @@ namespace Weather_Statistic.Models
         public KeyApi()
         {
             document = new XmlDocument();
-            document.Load(@"C:\Key.xml");
+            try
+            {
+                document.Load(@"C:\Key.xml");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
+        private Exception Exception(string v)
+        {
+            throw new NotImplementedException();
         }
 
         public string LoadWeatherApi()
