@@ -12,11 +12,11 @@ TODO:
 To correct working reqiured file (default path and name file in the program is C:/Key.xml)
 
 -----
-\<?xml version="1.0"?>
-\<API>
-\<Weather> acces code to darksky.net \</Weather>
-\<Location> acces code to opencagedata.com \</Location>
-\</API>
+\<?xml version="1.0"?><br/>
+\<API><br/>
+\<Weather> acces code to darksky.net \</Weather><br/>
+\<Location> acces code to opencagedata.com \</Location><br/>
+\</API><br/>
 -----
 
 Example images
