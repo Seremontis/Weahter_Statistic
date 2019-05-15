@@ -7,6 +7,7 @@ TODO:
 - improve responsive page (present HD and FULL HD)
 - improve throw exception
 - add forecast for next days
+- more test Units
 
 
 Example images
