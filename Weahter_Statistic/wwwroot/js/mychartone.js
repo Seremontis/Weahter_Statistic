@@ -41,8 +41,7 @@ function FillArray() {
             arrayWind[i][1] = arrayInfo[i].directNumber;
 
             //https://www.base64-image.de/
-
-            // check https://www.iconfinder.com/iconsets/weather-29
+            // https://www.iconfinder.com/iconsets/weather-29
             if (arrayInfo[i].typeWeat == "snow") {
                 results.push({
                     y: arrayInfo[i].rainfall,
@@ -69,10 +68,7 @@ function FillArray() {
             }
 
         }
-
     }
-
-    
 }
 
 function SetTime(array) {

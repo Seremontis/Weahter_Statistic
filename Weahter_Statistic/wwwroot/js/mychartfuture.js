@@ -1,9 +1,9 @@
 ﻿//grouping operation
-declareArray();
-fillArray();
+DeclareArray();
+FillArray();
 
 //function prepare data from C# models
-function declareArray() {
+function DeclareArray() {
     arrayTemp = [];
     arrayPressure = [];
     arrayWind = [];
@@ -11,7 +11,7 @@ function declareArray() {
     arrayDate=  [];
 }
 
-function fillArray() {
+function FillArray() {
     for (var i = 0; i < arrayInfo.length; i++) {
         arrayTemp.push(fillIconRain(arrayInfo[i]));
         arrayPressure.push(arrayInfo[i].pressure);
@@ -21,7 +21,7 @@ function fillArray() {
     }
 }
 
-function fillIconRain(x) {
+function FillIconRain(x) {
     switch (x.typeWeat) {
         case "snow":
             return ({
