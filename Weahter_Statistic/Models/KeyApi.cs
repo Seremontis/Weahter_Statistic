@@ -5,7 +5,7 @@ namespace Weather_Statistic.Models
 {
     /// <summary>
     /// load key API from file XML require to load data
-    /// line 22: place to modified path to file XML
+    /// line 20: place to modified path to file XML
     /// </summary>
 
     public class KeyApi

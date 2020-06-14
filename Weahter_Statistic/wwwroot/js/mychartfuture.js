@@ -13,7 +13,7 @@ function DeclareArray() {
 
 function FillArray() {
     for (var i = 0; i < arrayInfo.length; i++) {
-        arrayTemp.push(fillIconRain(arrayInfo[i]));
+        arrayTemp.push(FillIconRain(arrayInfo[i]));
         arrayPressure.push(arrayInfo[i].pressure);
         arrayWind.push([arrayInfo[i].windspeed, arrayInfo[i].directNumber]);
         arrayRain.push(arrayInfo[i].rainfall);
